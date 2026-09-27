@@ -14,6 +14,17 @@ public with sharing class LOS_Security {
         'You do not have the required application access.'
       );
   }
+  /** Read-only access flag; commands still perform full requireEdit authorization. */
+  public static Boolean canEditRecord(Id applicationId) {
+    requireRuntime(false);
+    List<UserRecordAccess> rows = [
+      SELECT RecordId, HasEditAccess
+      FROM UserRecordAccess
+      WHERE UserId = :UserInfo.getUserId() AND RecordId = :applicationId
+      WITH SYSTEM_MODE
+    ];
+    return !rows.isEmpty() && rows[0].HasEditAccess;
+  }
   public static void requireEdit(Set<Id> ids) {
     requireRuntime(false);
     if (ids.isEmpty() || ids.size() > 200)

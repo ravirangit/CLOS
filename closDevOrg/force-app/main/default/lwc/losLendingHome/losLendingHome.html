@@ -1,0 +1,61 @@
+<template
+  ><template lwc:if={isHome}
+    ><lightning-card title="Lending Home" icon-name="standard:opportunity">
+      <div slot="actions">
+        <lightning-button
+          label="Refresh"
+          onclick={refresh}
+          disabled={loading}
+        ></lightning-button
+        ><lightning-button
+          class="slds-m-left_small"
+          variant="brand"
+          label="New Credit Application"
+          onclick={newApplication}
+        ></lightning-button>
+      </div>
+      <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+        <h2 class="slds-text-heading_small">Accessible applications</h2>
+        <p>
+          The latest 50 applications you can access through Salesforce sharing.
+        </p>
+      </div>
+      <template lwc:if={loading}
+        ><lightning-spinner
+          alternative-text="Loading applications"
+          size="small"
+        ></lightning-spinner
+      ></template>
+      <template lwc:if={error}
+        ><div class="slds-p-around_medium slds-text-color_error" role="alert">
+          {error}
+        </div></template
+      >
+      <template lwc:if={empty}
+        ><p class="slds-p-around_medium">
+          No accessible applications yet. Create a credit application to get
+          started.
+        </p></template
+      >
+      <lightning-datatable
+        key-field="id"
+        data={rows}
+        columns={columns}
+        hide-checkbox-column
+        onrowaction={openRow}
+      ></lightning-datatable> </lightning-card></template
+  ><template lwc:else
+    ><lightning-button
+      label="Back to Lending Home"
+      onclick={back}
+    ></lightning-button
+    ><c-los-application-workspace
+      application-id={applicationId}
+    ></c-los-application-workspace
+  ></template>
+  <template lwc:if={creating}
+    ><c-los-create-application
+      oncancel={closeCreate}
+      oncreated={created}
+    ></c-los-create-application></template
+></template>

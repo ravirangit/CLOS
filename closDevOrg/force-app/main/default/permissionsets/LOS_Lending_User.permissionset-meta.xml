@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities><application>LOS_Lending</application><visible>true</visible></applicationVisibilities>
+    <classAccesses><apexClass>LOS_WorkspaceService</apexClass><enabled>true</enabled></classAccesses>
     <classAccesses>
         <apexClass>LOS_TATService</apexClass>
         <enabled>true</enabled>
@@ -426,4 +428,5 @@
         <object>LOS_TAT_Pause__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <tabSettings><tab>LOS_Lending_Home</tab><visibility>Visible</visibility></tabSettings>
 </PermissionSet>

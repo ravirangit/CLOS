@@ -1,0 +1,145 @@
+{
+  "openTatCount": 1,
+  "tatIntervals": [
+    {
+      "LOS_Stage__c": "Draft",
+      "LOS_Rework_Number__c": 0,
+      "LOS_Start_Date_Time__c": "2026-09-27T15:22:51.000+0000",
+      "LOS_End_Date_Time__c": "2026-09-27T15:36:54.000+0000"
+    },
+    {
+      "LOS_Stage__c": "Underwriting",
+      "LOS_Rework_Number__c": 0,
+      "LOS_Start_Date_Time__c": "2026-09-27T15:36:54.000+0000",
+      "LOS_End_Date_Time__c": "2026-09-27T15:37:11.000+0000"
+    },
+    {
+      "LOS_Stage__c": "RM_TL_Review",
+      "LOS_Rework_Number__c": 0,
+      "LOS_Start_Date_Time__c": "2026-09-27T15:37:11.000+0000",
+      "LOS_End_Date_Time__c": "2026-09-27T15:37:31.000+0000"
+    },
+    {
+      "LOS_Stage__c": "Credit_Review",
+      "LOS_Rework_Number__c": 0,
+      "LOS_Start_Date_Time__c": "2026-09-27T15:37:31.000+0000",
+      "LOS_End_Date_Time__c": "2026-09-27T15:37:57.000+0000"
+    },
+    {
+      "LOS_Stage__c": "Underwriting",
+      "LOS_Rework_Number__c": 1,
+      "LOS_Start_Date_Time__c": "2026-09-27T15:37:57.000+0000",
+      "LOS_End_Date_Time__c": "2026-09-27T15:38:22.000+0000"
+    },
+    {
+      "LOS_Stage__c": "RM_TL_Review",
+      "LOS_Rework_Number__c": 1,
+      "LOS_Start_Date_Time__c": "2026-09-27T15:38:22.000+0000",
+      "LOS_End_Date_Time__c": "2026-09-27T15:38:41.000+0000"
+    },
+    {
+      "LOS_Stage__c": "Credit_Review",
+      "LOS_Rework_Number__c": 1,
+      "LOS_Start_Date_Time__c": "2026-09-27T15:38:41.000+0000",
+      "LOS_End_Date_Time__c": "2026-09-27T15:39:49.000+0000"
+    },
+    {
+      "LOS_Stage__c": "Underwriting",
+      "LOS_Rework_Number__c": 2,
+      "LOS_Start_Date_Time__c": "2026-09-27T15:39:49.000+0000"
+    }
+  ],
+  "history": [
+    {
+      "LOS_To_Stage__c": "Draft",
+      "LOS_Transition_Type__c": "Initial",
+      "LOS_Rework_Number__c": 0
+    },
+    {
+      "LOS_From_Stage__c": "Draft",
+      "LOS_To_Stage__c": "Underwriting",
+      "LOS_Transition_Type__c": "Forward",
+      "LOS_Rework_Number__c": 0
+    },
+    {
+      "LOS_From_Stage__c": "Underwriting",
+      "LOS_To_Stage__c": "RM_TL_Review",
+      "LOS_Transition_Type__c": "Forward",
+      "LOS_Rework_Number__c": 0
+    },
+    {
+      "LOS_From_Stage__c": "RM_TL_Review",
+      "LOS_To_Stage__c": "Credit_Review",
+      "LOS_Transition_Type__c": "Forward",
+      "LOS_Rework_Number__c": 0
+    },
+    {
+      "LOS_From_Stage__c": "Credit_Review",
+      "LOS_To_Stage__c": "Underwriting",
+      "LOS_Transition_Type__c": "Rework",
+      "LOS_Rework_Number__c": 1,
+      "LOS_Reason__c": "Task 03 browser rework test"
+    },
+    {
+      "LOS_From_Stage__c": "Underwriting",
+      "LOS_To_Stage__c": "RM_TL_Review",
+      "LOS_Transition_Type__c": "Forward",
+      "LOS_Rework_Number__c": 1
+    },
+    {
+      "LOS_From_Stage__c": "RM_TL_Review",
+      "LOS_To_Stage__c": "Credit_Review",
+      "LOS_Transition_Type__c": "Forward",
+      "LOS_Rework_Number__c": 1
+    },
+    {
+      "LOS_From_Stage__c": "Credit_Review",
+      "LOS_To_Stage__c": "Underwriting",
+      "LOS_Transition_Type__c": "Rework",
+      "LOS_Rework_Number__c": 2,
+      "LOS_Reason__c": "Task 03 controlled concurrent change"
+    }
+  ],
+  "application": {
+    "Name": "APP-00000001",
+    "LOS_Current_Stage__c": "Underwriting",
+    "LOS_Status__c": "In Progress",
+    "LOS_Current_Rework_Number__c": 2,
+    "LOS_Runtime_Version__c": 7
+  },
+  "browser": "Chrome",
+  "result": "Passed",
+  "requiredScenarioFinalState": {
+    "stage": "Credit Review",
+    "status": "In Review",
+    "reworkNumber": 1,
+    "runtimeVersion": 6
+  },
+  "staleTest": {
+    "heldBrowserVersion": 6,
+    "concurrentCommand": "Credit_Review_To_Underwriting",
+    "concurrentVersion": 7,
+    "rejectedBrowserCommand": "Credit_Review_To_Draft",
+    "notice": "This application changed since you opened it. Review the latest information before taking another action.",
+    "automaticRetry": false,
+    "unexpectedHistoryOrTatRows": 0
+  },
+  "checks": [
+    "Lending Home and app navigation",
+    "Browser creation through existing facade",
+    "All six required lifecycle commands through browser",
+    "Stage and Status visibly separate",
+    "Rework increments only on rework and persists forward",
+    "Actions update by configured stage",
+    "Metadata navigation: Overview, Lifecycle, TAT / Activity",
+    "Read-only newest-first history",
+    "Current TAT and all persisted stage intervals match lifecycle",
+    "Refresh preserves server state",
+    "Stale submission rejects and refreshes without retry"
+  ],
+  "diagnosticsCleaned": {
+    "temporaryTraceFlagDeleted": true,
+    "browserDisableCacheRestored": true,
+    "devToolsClosed": true
+  }
+}

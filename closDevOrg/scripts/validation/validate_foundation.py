@@ -28,7 +28,7 @@ class FoundationContract(unittest.TestCase):
         project = json.loads((ROOT / 'sfdx-project.json').read_text())
         self.assertEqual([p['path'] for p in project['packageDirectories']], ['force-app'])
         self.assertEqual(project['namespace'], '')
-        for suffix in ['*.flow-meta.xml', '*.js']:
+        for suffix in ['*.flow-meta.xml']:
             self.assertEqual(list(SOURCE.rglob(suffix)), [])
 
     def test_lifecycle_graph(self):
@@ -58,6 +58,22 @@ class FoundationContract(unittest.TestCase):
         registry = (SOURCE/'classes/LOS_ValidationRegistry.cls').read_text()
         self.assertIn('private static void registerTestHook', registry)
         self.assertIn('!Test.isRunningTest()', registry)
+
+    def test_workspace_contract(self):
+        self.assertEqual({v['LOS_Component_Key__c'] for v in records('Workspace_Section').values()}, {'OVERVIEW','LIFECYCLE','TAT'})
+        actions = records('Workspace_Action')
+        self.assertEqual(len(actions), 14)
+        self.assertEqual({v['LOS_Transition__c'] for v in actions.values() if v['LOS_Handler_Key__c']=='TRANSITION'}, set(records('Stage_Transition')))
+        service = (SOURCE/'classes/LOS_WorkspaceService.cls').read_text()
+        self.assertNotIn('WITH SYSTEM_MODE', service)
+        self.assertNotIn('Database.', service)
+        for path in (SOURCE/'lwc').glob('*/*.js'):
+            text = path.read_text()
+            self.assertNotIn('createRecord', text)
+            self.assertNotIn('updateRecord', text)
+            self.assertNotIn('eval(', text)
+        modal = (SOURCE/'lwc/losTransitionModal/losTransitionModal.js').read_text()
+        self.assertIn('expectedVersion: this.action.expectedVersion', modal)
 
     def test_configuration_and_references(self):
         objects = {p.parent.name for p in (SOURCE / 'objects').glob('*/*.object-meta.xml')}

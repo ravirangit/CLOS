@@ -1,0 +1,11 @@
+{
+  "scope": "Production force-app source; test fixtures excluded",
+  "findings": [],
+  "namespace": "",
+  "packageDirectory": "force-app",
+  "testOnlyDependencies": [
+    "Existing LOS_TestData standard Minimum Access profile-name query and generated example.invalid users."
+  ],
+  "namespaceStrategy": "Schema-derived PageReference state namespace; no manually prefixed package identifiers.",
+  "packaging": "2GP creation and installation testing deferred"
+}

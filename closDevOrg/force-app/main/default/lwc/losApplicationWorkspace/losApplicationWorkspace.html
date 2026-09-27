@@ -1,0 +1,76 @@
+<template
+  ><div class="slds-m-top_medium slds-is-relative">
+    <template lwc:if={loading}
+      ><lightning-spinner
+        alternative-text="Loading workspace"
+        size="small"
+      ></lightning-spinner
+    ></template>
+    <template lwc:if={notice}
+      ><div class="slds-notify slds-notify_alert slds-theme_info" role="status">
+        {notice}
+      </div></template
+    >
+    <template lwc:if={error}
+      ><lightning-card title="Workspace unavailable"
+        ><p role="alert" class="slds-p-around_medium slds-text-color_error">
+          {error}
+        </p>
+        <lightning-button
+          class="slds-m-around_medium"
+          label="Retry workspace"
+          onclick={refresh}
+          disabled={loading}
+        ></lightning-button></lightning-card
+    ></template>
+    <template lwc:if={context}
+      ><c-los-application-header context={context}></c-los-application-header
+      ><c-los-workspace-actions
+        actions={context.actions}
+        selected-section={selected}
+        disabled={loading}
+        onaction={action}
+      ></c-los-workspace-actions>
+      <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+          <c-los-workspace-navigation
+            sections={context.navigationSections}
+            selected={selected}
+            onsectionselect={select}
+          ></c-los-workspace-navigation>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-large-size_10-of-12">
+          <template lwc:if={noSections}
+            ><p class="slds-p-around_medium">
+              No workspace sections are configured for your context.
+            </p></template
+          >
+          <template lwc:if={overview}
+            ><c-los-application-overview
+              context={context}
+            ></c-los-application-overview
+            ><c-los-application-health
+              indicators={context.health}
+            ></c-los-application-health
+          ></template>
+          <template lwc:if={lifecycle}
+            ><c-los-lifecycle-history
+              history={context.lifecycleHistory}
+              has-more={context.historyHasMore}
+            ></c-los-lifecycle-history
+          ></template>
+          <template lwc:if={tat}
+            ><c-los-tat-indicator timing={context.tat}></c-los-tat-indicator
+          ></template>
+        </div></div
+    ></template>
+    <template lwc:if={transition}
+      ><c-los-transition-modal
+        application-id={applicationId}
+        action={transition}
+        oncancel={cancel}
+        oncompleted={completed}
+        onstale={stale}
+      ></c-los-transition-modal
+    ></template></div
+></template>

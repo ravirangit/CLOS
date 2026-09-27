@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<label>Documentation To Ready for Booking</label><protected>false</protected>
+<values><field>LOS_Code__c</field><value xsi:type="xsd:string">Documentation_To_Ready_for_Booking</value></values>
+<values><field>LOS_Active__c</field><value xsi:type="xsd:boolean">true</value></values>
+<values><field>LOS_Handler_Key__c</field><value xsi:type="xsd:string">TRANSITION</value></values>
+<values><field>LOS_Transition__c</field><value xsi:type="xsd:string">Documentation_To_Ready_for_Booking</value></values>
+<values><field>LOS_Sequence__c</field><value xsi:type="xsd:double">70</value></values>
+<values><field>LOS_Requires_Confirmation__c</field><value xsi:type="xsd:boolean">true</value></values>
+</CustomMetadata>

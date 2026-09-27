@@ -98,7 +98,13 @@ def main():
         deployed_triggers = query('SELECT Name, Status, ApiVersion FROM ApexTrigger WHERE Name IN ('+quoted+')',tooling=True)
         assert {r['Name'] for r in deployed_triggers} == set(trigger_names)
         assert all(r['Status']=='Active' and r['ApiVersion']==67 for r in deployed_triggers)
-    summary={'verifiedAt':datetime.now(timezone.utc).isoformat(),'targetOrgAlias':args.target_org,'status':'Passed','objects':descriptions,'stageStatusMapping':actual_statuses,'stageCount':len(stages),'transitionCount':len(transitions),'reworkTransitionCount':sum(t['LOS_Transition_Type__c']=='Rework' for t in transitions),'applicationTypes':sorted(t['LOS_Code__c'] for t in types),'privateObjectCount':len(sharing),'objectPermissionCount':len(permissions),'referenceUnitCount':len(units),'apexClassCount':len(deployed_classes),'apexTriggerCount':len(deployed_triggers)}
+    workspace_sections = query('SELECT LOS_Code__c, LOS_Component_Key__c, LOS_Active__c FROM LOS_Workspace_Section__mdt')
+    assert {r['LOS_Component_Key__c'] for r in workspace_sections if r['LOS_Active__c']} == {'OVERVIEW','LIFECYCLE','TAT'}
+    workspace_actions = query('SELECT LOS_Code__c, LOS_Handler_Key__c, LOS_Transition__r.LOS_Code__c, LOS_Active__c FROM LOS_Workspace_Action__mdt')
+    assert len(workspace_actions) == 14 and all(r['LOS_Active__c'] for r in workspace_actions)
+    assert sum(r['LOS_Handler_Key__c']=='TRANSITION' for r in workspace_actions) == 13
+    assert all(r['LOS_Transition__r'] for r in workspace_actions if r['LOS_Handler_Key__c']=='TRANSITION')
+    summary={'verifiedAt':datetime.now(timezone.utc).isoformat(),'targetOrgAlias':args.target_org,'status':'Passed','objects':descriptions,'workspaceSectionCount':len(workspace_sections),'workspaceActionCount':len(workspace_actions),'stageStatusMapping':actual_statuses,'stageCount':len(stages),'transitionCount':len(transitions),'reworkTransitionCount':sum(t['LOS_Transition_Type__c']=='Rework' for t in transitions),'applicationTypes':sorted(t['LOS_Code__c'] for t in types),'privateObjectCount':len(sharing),'objectPermissionCount':len(permissions),'referenceUnitCount':len(units),'apexClassCount':len(deployed_classes),'apexTriggerCount':len(deployed_triggers)}
     Path(args.output).write_text(json.dumps(summary,indent=2)+'\n')
     print(json.dumps(summary,indent=2))
 

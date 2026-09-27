@@ -1,0 +1,10 @@
+<template
+  ><lightning-vertical-navigation selected-item={selected} onselect={select}
+    ><lightning-vertical-navigation-section label="Workspace"
+      ><template for:each={sections} for:item="section"
+        ><lightning-vertical-navigation-item
+          key={section.code}
+          label={section.label}
+          name={section.code}
+        ></lightning-vertical-navigation-item></template></lightning-vertical-navigation-section></lightning-vertical-navigation
+></template>

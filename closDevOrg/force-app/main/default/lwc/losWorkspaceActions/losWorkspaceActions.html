@@ -1,0 +1,13 @@
+<template
+  ><div class="slds-p-around_small" role="group" aria-label="Workspace actions">
+    <template for:each={visibleActions} for:item="action"
+      ><lightning-button
+        class="slds-m-right_small slds-m-bottom_x-small"
+        key={action.code}
+        label={action.label}
+        data-code={action.code}
+        onclick={execute}
+        disabled={disabled}
+      ></lightning-button
+    ></template></div
+></template>

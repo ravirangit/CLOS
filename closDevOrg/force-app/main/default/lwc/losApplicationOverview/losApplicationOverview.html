@@ -1,0 +1,25 @@
+<template
+  ><lightning-card title="Application context"
+    ><dl class="slds-list_horizontal slds-wrap slds-p-around_medium">
+      <dt class="slds-item_label slds-truncate">Primary RM</dt>
+      <dd class="slds-item_detail">{context.primaryRM}</dd>
+      <dt class="slds-item_label">Logical queue</dt>
+      <dd class="slds-item_detail">{context.currentQueueKey}</dd>
+      <dt class="slds-item_label">Business unit snapshot</dt>
+      <dd class="slds-item_detail">{context.businessUnitSnapshot}</dd>
+      <dt class="slds-item_label">Segment snapshot</dt>
+      <dd class="slds-item_detail">{context.segmentSnapshot}</dd>
+      <dt class="slds-item_label">Branch snapshot</dt>
+      <dd class="slds-item_detail">{context.branchSnapshot}</dd>
+      <dt class="slds-item_label">Applicable personas</dt>
+      <dd class="slds-item_detail">{personas}</dd>
+      <dt class="slds-item_label">Loaded at</dt>
+      <dd class="slds-item_detail">
+        <lightning-formatted-date-time
+          value={context.loadedAt}
+          hour="2-digit"
+          minute="2-digit"
+          second="2-digit"
+        ></lightning-formatted-date-time>
+      </dd></dl></lightning-card
+></template>

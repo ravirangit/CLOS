@@ -1,0 +1,85 @@
+<template
+  ><section
+    role="dialog"
+    onkeydown={keydown}
+    aria-modal="true"
+    aria-label="New Credit Application"
+    tabindex="-1"
+    class="slds-modal slds-fade-in-open"
+  >
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+        <h2 class="slds-text-heading_medium">New Credit Application</h2>
+      </header>
+      <div class="slds-modal__content slds-p-around_medium">
+        <template lwc:if={error}
+          ><p role="alert" class="slds-text-color_error">{error}</p></template
+        >
+        <lightning-input
+          label="Search relationships"
+          type="search"
+          data-kind="relationship"
+          onchange={search}
+          placeholder="Enter at least 2 characters"
+          disabled={saving}
+        ></lightning-input>
+        <template lwc:if={searching}><p role="status">Searching…</p></template>
+        <lightning-combobox
+          label="Relationship"
+          required
+          options={relationshipOptions}
+          value={relationshipId}
+          onchange={relationshipChanged}
+          disabled={saving}
+        ></lightning-combobox>
+        <lightning-combobox
+          label="Application type"
+          required
+          options={types}
+          value={typeCode}
+          onchange={typeChanged}
+          disabled={saving}
+        ></lightning-combobox>
+        <template lwc:if={baselineRequired}
+          ><lightning-input
+            label="Search approved baseline applications"
+            type="search"
+            data-kind="baseline"
+            onchange={search}
+            placeholder="Enter at least 2 characters"
+            disabled={saving}
+          ></lightning-input
+          ><lightning-combobox
+            label="Baseline application"
+            required
+            options={baselineOptions}
+            value={baselineId}
+            onchange={baselineChanged}
+            disabled={saving}
+          ></lightning-combobox
+        ></template>
+        <template lwc:if={saving}
+          ><lightning-spinner
+            alternative-text="Creating application"
+            size="small"
+          ></lightning-spinner
+        ></template>
+      </div>
+      <footer class="slds-modal__footer">
+        <lightning-button
+          label="Cancel"
+          onclick={cancel}
+          disabled={saving}
+        ></lightning-button
+        ><lightning-button
+          class="slds-m-left_small"
+          variant="brand"
+          label="Create application"
+          onclick={submit}
+          disabled={disabled}
+        ></lightning-button>
+      </footer>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open"></div
+></template>

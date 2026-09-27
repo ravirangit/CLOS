@@ -1,0 +1,23 @@
+<template
+  ><lightning-card title="Lifecycle history"
+    ><p class="slds-p-around_medium">
+      Newest visible events first. Reasons and comments are limited to 500
+      characters. History is read-only.
+    </p>
+    <template lwc:if={empty}
+      ><p class="slds-p-around_medium">
+        No lifecycle events are visible to you.
+      </p></template
+    ><lightning-datatable
+      key-field="id"
+      data={history}
+      columns={columns}
+      hide-checkbox-column
+    ></lightning-datatable
+    ><template lwc:if={hasMore}
+      ><p class="slds-p-around_medium">
+        Showing the latest 50 visible events.
+      </p></template
+    ></lightning-card
+  ></template
+>

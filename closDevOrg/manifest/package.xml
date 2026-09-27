@@ -47,6 +47,23 @@
         <members>LOS_Stage_Transition.RM_TL_Review_To_Underwriting</members>
         <members>LOS_Stage_Transition.Ready_for_Booking_To_Booked</members>
         <members>LOS_Stage_Transition.Underwriting_To_RM_TL_Review</members>
+        <members>LOS_Workspace_Action.Approved_To_Documentation</members>
+        <members>LOS_Workspace_Action.Booked_To_Monitoring</members>
+        <members>LOS_Workspace_Action.Credit_Review_To_Approved</members>
+        <members>LOS_Workspace_Action.Credit_Review_To_Draft</members>
+        <members>LOS_Workspace_Action.Credit_Review_To_RM_TL_Review</members>
+        <members>LOS_Workspace_Action.Credit_Review_To_Underwriting</members>
+        <members>LOS_Workspace_Action.Documentation_To_Ready_for_Booking</members>
+        <members>LOS_Workspace_Action.Draft_To_Underwriting</members>
+        <members>LOS_Workspace_Action.RM_TL_Review_To_Credit_Review</members>
+        <members>LOS_Workspace_Action.RM_TL_Review_To_Draft</members>
+        <members>LOS_Workspace_Action.RM_TL_Review_To_Underwriting</members>
+        <members>LOS_Workspace_Action.Ready_for_Booking_To_Booked</members>
+        <members>LOS_Workspace_Action.Refresh</members>
+        <members>LOS_Workspace_Action.Underwriting_To_RM_TL_Review</members>
+        <members>LOS_Workspace_Section.Lifecycle</members>
+        <members>LOS_Workspace_Section.Overview</members>
+        <members>LOS_Workspace_Section.TAT</members>
         <name>CustomMetadata</name>
     </types>
     <types>
@@ -108,6 +125,15 @@
         <members>LOS_ValidationService</members>
         <members>LOS_ValidationRegistry</members>
         <members>LOS_ArchitectureHardeningTest</members>
+        <members>LOS_WorkspaceActionDTO</members>
+        <members>LOS_WorkspaceApplicationDTO</members>
+        <members>LOS_WorkspaceContext</members>
+        <members>LOS_WorkspaceHistoryDTO</members>
+        <members>LOS_WorkspaceOptionDTO</members>
+        <members>LOS_WorkspaceSectionDTO</members>
+        <members>LOS_WorkspaceService</members>
+        <members>LOS_WorkspaceTatDTO</members>
+        <members>LOS_WorkspaceServiceTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -118,5 +144,8 @@
         <members>LOS_StageTATGuard</members>
         <name>ApexTrigger</name>
     </types>
+    <types><members>losApplicationHeader</members><members>losApplicationHealth</members><members>losApplicationOverview</members><members>losApplicationWorkspace</members><members>losCreateApplication</members><members>losLendingHome</members><members>losLifecycleHistory</members><members>losTatIndicator</members><members>losTransitionModal</members><members>losUiUtils</members><members>losWorkspaceActions</members><members>losWorkspaceNavigation</members><name>LightningComponentBundle</name></types>
+    <types><members>LOS_Lending_Home</members><name>CustomTab</name></types>
+    <types><members>LOS_Lending</members><name>CustomApplication</name></types>
     <version>67.0</version>
 </Package>

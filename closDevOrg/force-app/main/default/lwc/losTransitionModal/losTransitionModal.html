@@ -1,0 +1,67 @@
+<template
+  ><section
+    role="dialog"
+    onkeydown={keydown}
+    aria-modal="true"
+    aria-label={action.label}
+    tabindex="-1"
+    class="slds-modal slds-fade-in-open"
+  >
+    <div class="slds-modal__container">
+      <header class="slds-modal__header">
+        <h2 class="slds-text-heading_medium">{action.label}</h2>
+      </header>
+      <div class="slds-modal__content slds-p-around_medium">
+        <template lwc:if={error}
+          ><p role="alert" class="slds-text-color_error">{error}</p></template
+        ><lightning-textarea
+          label="Reason"
+          name="reason"
+          value={reason}
+          required={action.requiresReason}
+          maxlength="32768"
+          onchange={change}
+          disabled={saving}
+        ></lightning-textarea
+        ><lightning-textarea
+          label="Comments"
+          name="comments"
+          value={comments}
+          maxlength="32768"
+          onchange={change}
+          disabled={saving}
+        ></lightning-textarea
+        ><template lwc:if={action.requiresConfirmation}
+          ><lightning-input
+            type="checkbox"
+            name="confirmation"
+            label="I confirm this action"
+            checked={confirmed}
+            onchange={change}
+            disabled={saving}
+          ></lightning-input></template
+        ><template lwc:if={saving}
+          ><lightning-spinner
+            alternative-text="Executing transition"
+            size="small"
+          ></lightning-spinner
+        ></template>
+      </div>
+      <footer class="slds-modal__footer">
+        <lightning-button
+          label="Cancel"
+          onclick={cancel}
+          disabled={saving}
+        ></lightning-button
+        ><lightning-button
+          class="slds-m-left_small"
+          variant="brand"
+          label={action.label}
+          onclick={submit}
+          disabled={disabled}
+        ></lightning-button>
+      </footer>
+    </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open"></div
+></template>

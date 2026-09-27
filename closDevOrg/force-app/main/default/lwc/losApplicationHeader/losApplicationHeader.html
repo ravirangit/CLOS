@@ -1,0 +1,38 @@
+<template
+  ><lightning-card
+    title={context.application.applicationNumber}
+    icon-name="standard:opportunity"
+    ><div
+      class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-p-bottom_small"
+    >
+      <div class="slds-col slds-size_1-of-2 slds-large-size_1-of-4">
+        <p class="slds-text-title">Relationship</p>
+        <p>{context.relationshipName}</p>
+        <p class="slds-text-title slds-m-top_small">Application type</p>
+        <p>{context.applicationTypeLabel}</p>
+      </div>
+      <div class="slds-col slds-size_1-of-2 slds-large-size_1-of-4">
+        <p class="slds-text-title">Stage</p>
+        <p class="slds-text-heading_small" data-field="stage">
+          {context.stageLabel}
+        </p>
+        <p class="slds-text-title slds-m-top_small">Status</p>
+        <p data-field="status">{context.application.status}</p>
+      </div>
+      <div class="slds-col slds-size_1-of-2 slds-large-size_1-of-4">
+        <p class="slds-text-title">Work assignee</p>
+        <p>{context.currentOwnerUser}</p>
+        <p class="slds-text-title slds-m-top_small">Organization unit</p>
+        <p>{context.organizationUnit}</p>
+      </div>
+      <div class="slds-col slds-size_1-of-2 slds-large-size_1-of-4">
+        <p class="slds-text-title">Rework number</p>
+        <p class="slds-text-heading_small">
+          {context.application.reworkNumber}
+        </p>
+        <p class="slds-text-title slds-m-top_small">State version</p>
+        <p>{context.application.version}</p>
+      </div>
+    </div></lightning-card
+  ></template
+>

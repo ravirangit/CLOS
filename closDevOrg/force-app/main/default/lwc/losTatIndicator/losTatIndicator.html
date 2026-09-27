@@ -1,0 +1,32 @@
+<template
+  ><lightning-card title="Stage timing"
+    ><div class="slds-p-around_medium">
+      <p>{timing.availability}</p>
+      <template lwc:if={timing.id}
+        ><dl class="slds-list_horizontal slds-wrap slds-m-top_medium">
+          <dt class="slds-item_label">Started</dt>
+          <dd class="slds-item_detail">
+            <lightning-formatted-date-time
+              value={timing.startedAt}
+              year="numeric"
+              month="short"
+              day="2-digit"
+              hour="2-digit"
+              minute="2-digit"
+            ></lightning-formatted-date-time>
+          </dd>
+          <dt class="slds-item_label">Gross elapsed minutes</dt>
+          <dd class="slds-item_detail">{timing.grossMinutes}</dd>
+          <dt class="slds-item_label">Business minutes</dt>
+          <dd class="slds-item_detail">{business}</dd>
+          <dt class="slds-item_label">SLA target minutes</dt>
+          <dd class="slds-item_detail">{target}</dd>
+          <dt class="slds-item_label">Recorded paused minutes</dt>
+          <dd class="slds-item_detail">{timing.pausedMinutes}</dd>
+          <dt class="slds-item_label">Pause visibility</dt>
+          <dd class="slds-item_detail">{pauseLabel}</dd>
+        </dl></template
+      >
+    </div></lightning-card
+  ></template
+>

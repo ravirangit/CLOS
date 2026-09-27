@@ -1,8 +1,12 @@
-# LOS — configurable commercial lending runtime
+# LOS — configurable commercial lending workspace
+
+Task 03 is implemented and validated: 61 Apex tests, 11 Jest tests, and the browser lifecycle/rework/concurrency scenario passed. Deployment: `0Afbm00000hFjbxCAC` (92.52% aggregate Apex coverage).
+
+Task 03 adds **App Launcher → LOS Lending → Lending Home**, application creation and the Unified Workspace. See [Task 03 architecture, access and tests](docs/task-03-unified-workspace.md). The workspace uses `LOS_WorkspaceService` for a single read context and the existing runtime facades for commands.
 
 Task 02.1 separates Stage from Status and adds a controlled validator registry. See [architecture hardening and validation results](docs/task-02-1-architecture-hardening.md).
 
-Task 02 builds on the Task 01 foundation with application creation, configured lifecycle/rework, gross TAT, pause/resume, validation hooks, and server-side write protection. All product metadata and Apex remain in the single `force-app` package directory. No LWC, Flow, lending module, approval process or booking integration is included.
+Task 02 builds on the Task 01 foundation with application creation, configured lifecycle/rework, gross TAT, pause/resume, validation hooks, and server-side write protection. All product metadata and Apex remain in the single `force-app` package directory. Task 03 adds LWC presentation; no Flow, lending module, approval process or booking integration is included.
 
 ## Architecture principles
 
@@ -35,33 +39,33 @@ Salesforce sources: [custom object naming](https://help.salesforce.com/s/article
 
 The nine public Custom Metadata Types retain subscriber-controlled fields and unprotected reference records. Clients can add types and change lifecycle configuration without changing Apex. Code enforces the command protocol, transaction/security rules and configuration consistency; metadata supplies business values.
 
-| Type (`LOS_…__mdt`) | Responsibility |
-|---|---|
-| Application_Type | Active type code, explicit initial-stage relationship, baseline requirement and display sequence. |
-| Stage | Code, label, sequence, activity, terminal/TAT and approval/documentation/booking flags. |
-| Stage_Transition | Directed stage relationships, type scope, protocol type, action label, reason and validation policy. |
-| Persona | Extensible business persona catalog; no permission grants. |
-| Workspace_Section | Future workspace component/visibility keys, scope and presentation order. |
-| Workspace_Action | Future handlers, authorization keys, scope, transition and confirmation behavior. |
-| SLA_Rule | Scoped target, warning threshold, priority, effective dates and portable business-hours key. |
-| TAT_Pause_Rule | Scoped pause reasons and captured SLA-counting/comments policies. |
-| Org_Unit_Type | Generic organization taxonomy without fixed depth or hierarchy semantics. |
+| Type (`LOS_…__mdt`) | Responsibility                                                                                       |
+| ------------------- | ---------------------------------------------------------------------------------------------------- |
+| Application_Type    | Active type code, explicit initial-stage relationship, baseline requirement and display sequence.    |
+| Stage               | Code, label, sequence, activity, terminal/TAT and approval/documentation/booking flags.              |
+| Stage_Transition    | Directed stage relationships, type scope, protocol type, action label, reason and validation policy. |
+| Persona             | Extensible business persona catalog; no permission grants.                                           |
+| Workspace_Section   | Workspace component/visibility keys, scope and presentation order.                                   |
+| Workspace_Action    | Workspace handlers, authorization keys, scope, transition and confirmation behavior.                 |
+| SLA_Rule            | Scoped target, warning threshold, priority, effective dates and portable business-hours key.         |
+| TAT_Pause_Rule      | Scoped pause reasons and captured SLA-counting/comments policies.                                    |
+| Org_Unit_Type       | Generic organization taxonomy without fixed depth or hierarchy semantics.                            |
 
-The configuration service caches each catalog per transaction and returns immutable wrappers. It validates active stage/type/transition resolution, applies scoped overrides, and rejects ambiguous winning policies. No default persona, SLA duration, UI section, approval authority or regional calendar is invented.
+The configuration service caches each catalog per transaction and returns immutable wrappers. It validates active stage/type/transition resolution, applies scoped overrides, and rejects ambiguous winning policies. Workspace section/action reference seeds are provided in Task 03. No default persona, SLA duration, approval authority or regional calendar is invented.
 
 ## Core objects
 
-| Object (`LOS_…__c`) | Purpose | Custom fields |
-|---|---|---:|
-| Organization_Unit | Generic unit hierarchy and effective context. | 6 |
-| User_Org_Assignment | Effective-dated many-to-many user/unit membership. | 7 |
-| Relationship | Customer relationship, Account, primary RM/unit and current snapshots. | 9 |
-| Credit_Application | Service-managed application, captured context, lifecycle/version/rework and lineage. | 20 |
-| Application_Team | Effective-dated application participation. | 7 |
-| Lifecycle_History | Immutable, service-created transition events. | 9 |
-| Stage_TAT | Stage intervals, unique open key, SLA snapshot and measured durations. | 14 |
-| Assignment_TAT | Reserved assignment timing model; execution deferred. | 8 |
-| TAT_Pause | Controlled pauses with unique open key and captured counting policy. | 8 |
+| Object (`LOS_…__c`) | Purpose                                                                              | Custom fields |
+| ------------------- | ------------------------------------------------------------------------------------ | ------------: |
+| Organization_Unit   | Generic unit hierarchy and effective context.                                        |             6 |
+| User_Org_Assignment | Effective-dated many-to-many user/unit membership.                                   |             7 |
+| Relationship        | Customer relationship, Account, primary RM/unit and current snapshots.               |             9 |
+| Credit_Application  | Service-managed application, captured context, lifecycle/version/rework and lineage. |            20 |
+| Application_Team    | Effective-dated application participation.                                           |             7 |
+| Lifecycle_History   | Immutable, service-created transition events.                                        |             9 |
+| Stage_TAT           | Stage intervals, unique open key, SLA snapshot and measured durations.               |            14 |
+| Assignment_TAT      | Reserved assignment timing model; execution deferred.                                |             8 |
+| TAT_Pause           | Controlled pauses with unique open key and captured counting policy.                 |             8 |
 
 There are 88 core custom fields and 83 configuration fields, excluding standard Name/OwnerId/audit fields. All nine core objects retain Private internal and external OWD. No metadata requirement from Task 01 was removed.
 
@@ -140,9 +144,9 @@ Full [creation, lifecycle, rework and TAT sequence diagrams](docs/task-02-runtim
 
 ```sh
 python3 scripts/validation/validate_foundation.py
-sf project deploy start --source-dir force-app --target-org closDevOrg --dry-run --test-level RunSpecifiedTests --tests LOS_ApplicationServiceTest --tests LOS_LifecycleServiceTest --tests LOS_TATServiceTest --tests LOS_ConfigurationServiceTest --tests LOS_SecurityTest --wait 10
-sf project deploy start --source-dir force-app --target-org closDevOrg --test-level RunSpecifiedTests --tests LOS_ApplicationServiceTest --tests LOS_LifecycleServiceTest --tests LOS_TATServiceTest --tests LOS_ConfigurationServiceTest --tests LOS_SecurityTest --wait 10
-python3 scripts/validation/verify_deployed.py --target-org closDevOrg --expect-reference-data --output docs/task-02-org-verification.json
+sf project deploy start --source-dir force-app --target-org closDevOrg --dry-run --test-level RunLocalTests --wait 10
+sf project deploy start --source-dir force-app --target-org closDevOrg --test-level RunLocalTests --wait 10
+python3 scripts/validation/verify_deployed.py --target-org closDevOrg --expect-reference-data --output docs/task-03-org-verification.json
 ```
 
 The Python suite verifies the foundation's graph, namespace safety, configuration manageability, sharing/permission boundaries, required User validation and reference hierarchy. Apex suites exercise runtime behavior, negative security cases and 200-record batches. See [actual results](docs/task-02-validation.md); a deployment test level is not a substitute for those results.
@@ -154,6 +158,8 @@ The Python suite verifies the foundation's graph, namespace safety, configuratio
 - Gross time is measured in UTC, accumulating milliseconds before rounding whole-minute fields down. Business Minutes stays null; a configured calendar produces Pending Calendar SLA status.
 - Validation hooks are trusted, registered Apex implementations and must be free of DML/callout side effects. Missing configured hooks fail closed.
 - Existing applications with null runtime versions and old open timing records require deliberate migration. No migration or repair bypass is shipped.
-- Approval-type graph edges do not execute approval decisions or authority checks. Approvals, booking, business calendars, assignment TAT, Visibility Engine, workspace UI, lending modules, integrations, retention, managed packaging and production concurrency/load/security review remain deferred.
+- Approval-type graph edges do not execute approval decisions or authority checks. Approvals, booking, business calendars, assignment TAT, Visibility Engine, lending modules, integrations, retention, managed packaging and production concurrency/load/security review remain deferred.
 
-Task 02.1 stops here for architecture review.
+Task 03 stops here for architecture and source review.
+
+Main LWC components: `losLendingHome`, `losCreateApplication`, `losApplicationWorkspace`, header/navigation/actions, overview/health, lifecycle history, TAT indicator and transition modal. Development checks: `npm ci --ignore-scripts`, `npm run test:unit -- -- --runInBand`, `npm run lint`, and the Python foundation validator. See the Task 03 document for deployment and manual verification.

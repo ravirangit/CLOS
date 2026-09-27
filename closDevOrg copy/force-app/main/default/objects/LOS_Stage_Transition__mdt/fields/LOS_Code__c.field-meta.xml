@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Code__c</fullName>
+    <description>Stable configuration key; unique within this type across namespaces. Do not change after use.</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Code</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Persona_Code__c</fullName>
+    <description>Persona Code. See docs/data-dictionary.md for usage.</description>
+    <label>Persona Code</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+</CustomField>

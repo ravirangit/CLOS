@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Exactly_One_Assignee</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(AND(ISBLANK(LOS_User__c), ISBLANK(LOS_Queue_Key__c)), AND(NOT(ISBLANK(LOS_User__c)), NOT(ISBLANK(LOS_Queue_Key__c))))</errorConditionFormula>
+    <errorMessage>Specify exactly one user or queue key.</errorMessage>
+</ValidationRule>

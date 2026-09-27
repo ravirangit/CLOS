@@ -25,7 +25,8 @@ private class LOS_ApplicationServiceTest {
         WHERE Id = :dto.applicationId
       ];
       Assert.areEqual('Draft', dto.stageCode);
-      Assert.areEqual('Draft', app.LOS_Status__c);
+      Assert.areEqual('In Progress', app.LOS_Status__c);
+      Assert.areNotEqual(app.LOS_Current_Stage__c, app.LOS_Status__c);
       Assert.areEqual(0, app.LOS_Rework_Count__c);
       Assert.areEqual(0, dto.version);
       Assert.isNotNull(dto.applicationNumber);

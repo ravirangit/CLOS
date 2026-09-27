@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Effective_Dates</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK(LOS_Effective_From__c)), NOT(ISBLANK(LOS_Effective_To__c)), LOS_Effective_To__c &lt; LOS_Effective_From__c)</errorConditionFormula>
+    <errorMessage>Effective To must be on or after Effective From.</errorMessage>
+</ValidationRule>

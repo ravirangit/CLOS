@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Configurable SLA targets; business hours are resolved by a portable key, not an org ID.</description>
+    <label>LOS SLA Rule</label>
+    <pluralLabel>LOS SLA Rule Records</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

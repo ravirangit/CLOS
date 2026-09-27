@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Pause_Reason__c</fullName>
+    <description>Pause Reason. See docs/data-dictionary.md for usage.</description>
+    <label>Pause Reason</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+</CustomField>

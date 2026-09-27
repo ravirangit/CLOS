@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Transition_Type__c</fullName>
+    <description>Transition Type. See docs/data-dictionary.md for usage.</description>
+    <label>Transition Type</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+</CustomField>

@@ -189,7 +189,7 @@ private class LOS_LifecycleServiceTest {
       );
       t.LOS_Validation_Policy_Code__c = 'TEST_BLOCK';
       LOS_TestData.overrideTransition(t);
-      LOS_ValidationService.registerHook('TEST_BLOCK', new Reject());
+      LOS_ValidationRegistry.registerTestHook('TEST_BLOCK', new Reject());
       try {
         LOS_TestData.move(app, 'RM_TL_Review_To_Credit_Review');
         Assert.fail('Expected failure');
@@ -420,7 +420,7 @@ private class LOS_LifecycleServiceTest {
       );
       transition.LOS_Validation_Policy_Code__c = 'SIDE_EFFECT';
       LOS_TestData.overrideTransition(transition);
-      LOS_ValidationService.registerHook('SIDE_EFFECT', new SideEffect());
+      LOS_ValidationRegistry.registerTestHook('SIDE_EFFECT', new SideEffect());
       try {
         LOS_TestData.move(app, 'Draft_To_Underwriting');
         Assert.fail('Expected failure');

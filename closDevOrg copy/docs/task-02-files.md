@@ -1,0 +1,101 @@
+# Task 02 file changes
+
+Compared with a file-hash snapshot taken before Task 02: **73 created, 19 modified, 0 deleted**. Git had no tracked baseline for this project.
+
+## Created
+
+- `docs/task-02-files.md`
+- `docs/task-02-org-verification.json`
+- `docs/task-02-results.json`
+- `docs/task-02-runtime.md`
+- `docs/task-02-validation.md`
+- `force-app/main/default/classes/LOS_ApplicationDTO.cls`
+- `force-app/main/default/classes/LOS_ApplicationDTO.cls-meta.xml`
+- `force-app/main/default/classes/LOS_ApplicationService.cls`
+- `force-app/main/default/classes/LOS_ApplicationService.cls-meta.xml`
+- `force-app/main/default/classes/LOS_ApplicationServiceTest.cls`
+- `force-app/main/default/classes/LOS_ApplicationServiceTest.cls-meta.xml`
+- `force-app/main/default/classes/LOS_BusinessTimeService.cls`
+- `force-app/main/default/classes/LOS_BusinessTimeService.cls-meta.xml`
+- `force-app/main/default/classes/LOS_ConfigurationException.cls`
+- `force-app/main/default/classes/LOS_ConfigurationException.cls-meta.xml`
+- `force-app/main/default/classes/LOS_ConfigurationService.cls`
+- `force-app/main/default/classes/LOS_ConfigurationService.cls-meta.xml`
+- `force-app/main/default/classes/LOS_ConfigurationServiceTest.cls`
+- `force-app/main/default/classes/LOS_ConfigurationServiceTest.cls-meta.xml`
+- `force-app/main/default/classes/LOS_Exception.cls`
+- `force-app/main/default/classes/LOS_Exception.cls-meta.xml`
+- `force-app/main/default/classes/LOS_LifecycleException.cls`
+- `force-app/main/default/classes/LOS_LifecycleException.cls-meta.xml`
+- `force-app/main/default/classes/LOS_LifecycleService.cls`
+- `force-app/main/default/classes/LOS_LifecycleService.cls-meta.xml`
+- `force-app/main/default/classes/LOS_LifecycleServiceTest.cls`
+- `force-app/main/default/classes/LOS_LifecycleServiceTest.cls-meta.xml`
+- `force-app/main/default/classes/LOS_RecordGuard.cls`
+- `force-app/main/default/classes/LOS_RecordGuard.cls-meta.xml`
+- `force-app/main/default/classes/LOS_RuntimeData.cls`
+- `force-app/main/default/classes/LOS_RuntimeData.cls-meta.xml`
+- `force-app/main/default/classes/LOS_RuntimeService.cls`
+- `force-app/main/default/classes/LOS_RuntimeService.cls-meta.xml`
+- `force-app/main/default/classes/LOS_RuntimeWriter.cls`
+- `force-app/main/default/classes/LOS_RuntimeWriter.cls-meta.xml`
+- `force-app/main/default/classes/LOS_Security.cls`
+- `force-app/main/default/classes/LOS_Security.cls-meta.xml`
+- `force-app/main/default/classes/LOS_SecurityException.cls`
+- `force-app/main/default/classes/LOS_SecurityException.cls-meta.xml`
+- `force-app/main/default/classes/LOS_SecurityTest.cls`
+- `force-app/main/default/classes/LOS_SecurityTest.cls-meta.xml`
+- `force-app/main/default/classes/LOS_TATDTO.cls`
+- `force-app/main/default/classes/LOS_TATDTO.cls-meta.xml`
+- `force-app/main/default/classes/LOS_TATException.cls`
+- `force-app/main/default/classes/LOS_TATException.cls-meta.xml`
+- `force-app/main/default/classes/LOS_TATService.cls`
+- `force-app/main/default/classes/LOS_TATService.cls-meta.xml`
+- `force-app/main/default/classes/LOS_TATServiceTest.cls`
+- `force-app/main/default/classes/LOS_TATServiceTest.cls-meta.xml`
+- `force-app/main/default/classes/LOS_TestData.cls`
+- `force-app/main/default/classes/LOS_TestData.cls-meta.xml`
+- `force-app/main/default/classes/LOS_TransitionDTO.cls`
+- `force-app/main/default/classes/LOS_TransitionDTO.cls-meta.xml`
+- `force-app/main/default/classes/LOS_ValidationException.cls`
+- `force-app/main/default/classes/LOS_ValidationException.cls-meta.xml`
+- `force-app/main/default/classes/LOS_ValidationService.cls`
+- `force-app/main/default/classes/LOS_ValidationService.cls-meta.xml`
+- `force-app/main/default/customPermissions/LOS_Use_Runtime.customPermission-meta.xml`
+- `force-app/main/default/objects/LOS_Application_Type__mdt/fields/LOS_Initial_Stage__c.field-meta.xml`
+- `force-app/main/default/objects/LOS_Credit_Application__c/fields/LOS_Runtime_Version__c.field-meta.xml`
+- `force-app/main/default/objects/LOS_Stage_TAT__c/fields/LOS_Calendar_Key__c.field-meta.xml`
+- `force-app/main/default/objects/LOS_Stage_TAT__c/fields/LOS_Open_Context_Key__c.field-meta.xml`
+- `force-app/main/default/objects/LOS_TAT_Pause__c/fields/LOS_Open_Context_Key__c.field-meta.xml`
+- `force-app/main/default/triggers/LOS_ApplicationGuard.trigger`
+- `force-app/main/default/triggers/LOS_ApplicationGuard.trigger-meta.xml`
+- `force-app/main/default/triggers/LOS_AssignmentTATGuard.trigger`
+- `force-app/main/default/triggers/LOS_AssignmentTATGuard.trigger-meta.xml`
+- `force-app/main/default/triggers/LOS_HistoryGuard.trigger`
+- `force-app/main/default/triggers/LOS_HistoryGuard.trigger-meta.xml`
+- `force-app/main/default/triggers/LOS_PauseGuard.trigger`
+- `force-app/main/default/triggers/LOS_PauseGuard.trigger-meta.xml`
+- `force-app/main/default/triggers/LOS_StageTATGuard.trigger`
+- `force-app/main/default/triggers/LOS_StageTATGuard.trigger-meta.xml`
+
+## Modified
+
+- `README.md`
+- `docs/data-dictionary.md`
+- `docs/schema.json`
+- `force-app/main/default/customMetadata/LOS_Application_Type.Modification.md-meta.xml`
+- `force-app/main/default/customMetadata/LOS_Application_Type.New.md-meta.xml`
+- `force-app/main/default/customMetadata/LOS_Application_Type.Renewal.md-meta.xml`
+- `force-app/main/default/layouts/LOS_Application_Type__mdt-LOS Layout.layout-meta.xml`
+- `force-app/main/default/layouts/LOS_Credit_Application__c-LOS Layout.layout-meta.xml`
+- `force-app/main/default/layouts/LOS_Stage_TAT__c-LOS Layout.layout-meta.xml`
+- `force-app/main/default/layouts/LOS_TAT_Pause__c-LOS Layout.layout-meta.xml`
+- `force-app/main/default/objects/LOS_Credit_Application__c/LOS_Credit_Application__c.object-meta.xml`
+- `force-app/main/default/objects/LOS_Lifecycle_History__c/LOS_Lifecycle_History__c.object-meta.xml`
+- `force-app/main/default/objects/LOS_Stage_TAT__c/LOS_Stage_TAT__c.object-meta.xml`
+- `force-app/main/default/objects/LOS_TAT_Pause_Rule__mdt/LOS_TAT_Pause_Rule__mdt.object-meta.xml`
+- `force-app/main/default/permissionsets/LOS_Lending_User.permissionset-meta.xml`
+- `force-app/main/default/permissionsets/LOS_Platform_Admin.permissionset-meta.xml`
+- `manifest/package.xml`
+- `scripts/validation/validate_foundation.py`
+- `scripts/validation/verify_deployed.py`

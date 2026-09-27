@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Application_Type__c</fullName>
+    <description>Stable Application Type metadata Code. Text permits subscriber-added types.</description>
+    <label>Application Type</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+</CustomField>

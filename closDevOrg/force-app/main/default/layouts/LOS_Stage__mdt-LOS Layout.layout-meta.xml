@@ -6,6 +6,7 @@
         <editHeading>true</editHeading>
         <label>Details</label>
         <layoutColumns>
+            <layoutItems><behavior>Edit</behavior><field>LOS_Default_Application_Status__c</field></layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>NamespacePrefix</field>

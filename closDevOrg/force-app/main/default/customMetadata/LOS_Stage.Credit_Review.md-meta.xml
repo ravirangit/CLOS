@@ -38,4 +38,8 @@
         <field>LOS_Booking_Stage__c</field>
         <value xsi:type="xsd:boolean">false</value>
     </values>
+    <values>
+        <field>LOS_Default_Application_Status__c</field>
+        <value xsi:type="xsd:string">In Review</value>
+    </values>
 </CustomMetadata>

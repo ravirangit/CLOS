@@ -49,6 +49,16 @@ class FoundationContract(unittest.TestCase):
             if v['LOS_Transition_Type__c'] == 'Rework': self.assertEqual(v['LOS_Requires_Reason__c'], 'true')
         self.assertEqual(set(records('Application_Type')), {'New', 'Renewal', 'Modification'})
 
+    def test_stage_status_and_registry_contract(self):
+        expected = {'Draft':'In Progress','Underwriting':'In Progress','RM_TL_Review':'In Review','Credit_Review':'In Review','Approved':'Approved','Documentation':'Approved','Ready_for_Booking':'Approved','Booked':'Booked','Monitoring':'Active'}
+        self.assertEqual({k:v['LOS_Default_Application_Status__c'] for k,v in records('Stage').items()}, expected)
+        for path in (SOURCE/'classes').glob('*.cls'):
+            if '@IsTest' not in path.read_text():
+                self.assertNotIn('Type.forName', path.read_text())
+        registry = (SOURCE/'classes/LOS_ValidationRegistry.cls').read_text()
+        self.assertIn('private static void registerTestHook', registry)
+        self.assertIn('!Test.isRunningTest()', registry)
+
     def test_configuration_and_references(self):
         objects = {p.parent.name for p in (SOURCE / 'objects').glob('*/*.object-meta.xml')}
         self.assertEqual(len(objects), 18)

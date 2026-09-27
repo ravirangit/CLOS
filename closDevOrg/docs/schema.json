@@ -190,6 +190,14 @@
         "type": "Checkbox",
         "required": false,
         "reference": null
+      },
+      "LOS_Default_Application_Status__c": {
+        "label": "Default Application Status",
+        "type": "Text",
+        "required": false,
+        "reference": null,
+        "businessRequired": true,
+        "enforcement": "Runtime configuration validation"
       }
     },
     "LOS_Stage_Transition__mdt": {

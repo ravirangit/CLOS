@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Active__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Active. See docs/data-dictionary.md for usage.</description>
+    <label>Active</label>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Approved To Documentation</label>
+    <protected>false</protected>
+    <values>
+        <field>LOS_Code__c</field>
+        <value xsi:type="xsd:string">Approved_To_Documentation</value>
+    </values>
+    <values>
+        <field>LOS_Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>LOS_From_Stage__c</field>
+        <value xsi:type="xsd:string">Approved</value>
+    </values>
+    <values>
+        <field>LOS_To_Stage__c</field>
+        <value xsi:type="xsd:string">Documentation</value>
+    </values>
+    <values>
+        <field>LOS_Transition_Type__c</field>
+        <value xsi:type="xsd:string">Forward</value>
+    </values>
+    <values>
+        <field>LOS_Action_Label__c</field>
+        <value xsi:type="xsd:string">Move to Documentation</value>
+    </values>
+    <values>
+        <field>LOS_Requires_Reason__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>LOS_Requires_Validation__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>LOS_Sequence__c</field>
+        <value xsi:type="xsd:double">50</value>
+    </values>
+</CustomMetadata>

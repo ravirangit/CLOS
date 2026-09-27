@@ -1,0 +1,168 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_BANK"
+      },
+      "Name": "Reference Bank",
+      "LOS_Code__c": "REF_BANK",
+      "LOS_Unit_Type__c": "Bank",
+      "LOS_Active__c": true
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_International"
+      },
+      "Name": "International",
+      "LOS_Code__c": "REF_International",
+      "LOS_Unit_Type__c": "Region",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_BANK"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_International_CIB"
+      },
+      "Name": "C&IB",
+      "LOS_Code__c": "REF_International_CIB",
+      "LOS_Unit_Type__c": "Business_Unit",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_International"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_International_BUB"
+      },
+      "Name": "BuB",
+      "LOS_Code__c": "REF_International_BUB",
+      "LOS_Unit_Type__c": "Business_Unit",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_International"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_International_PB"
+      },
+      "Name": "PB",
+      "LOS_Code__c": "REF_International_PB",
+      "LOS_Unit_Type__c": "Business_Unit",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_International"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_International_PRB"
+      },
+      "Name": "PRB",
+      "LOS_Code__c": "REF_International_PRB",
+      "LOS_Unit_Type__c": "Business_Unit",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_International"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_India"
+      },
+      "Name": "India",
+      "LOS_Code__c": "REF_India",
+      "LOS_Unit_Type__c": "Region",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_BANK"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_India_CIB"
+      },
+      "Name": "C&IB",
+      "LOS_Code__c": "REF_India_CIB",
+      "LOS_Unit_Type__c": "Business_Unit",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_India"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_India_BUB"
+      },
+      "Name": "BuB",
+      "LOS_Code__c": "REF_India_BUB",
+      "LOS_Unit_Type__c": "Business_Unit",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_India"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_India_PB"
+      },
+      "Name": "PB",
+      "LOS_Code__c": "REF_India_PB",
+      "LOS_Unit_Type__c": "Business_Unit",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_India"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_India_PRB"
+      },
+      "Name": "PRB",
+      "LOS_Code__c": "REF_India_PRB",
+      "LOS_Unit_Type__c": "Business_Unit",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_India"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_BRANCH_1601"
+      },
+      "Name": "Sample Branch 1601",
+      "LOS_Code__c": "REF_BRANCH_1601",
+      "LOS_Unit_Type__c": "Branch",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_India_CIB"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_BRANCH_2001"
+      },
+      "Name": "Sample Branch 2001",
+      "LOS_Code__c": "REF_BRANCH_2001",
+      "LOS_Unit_Type__c": "Branch",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_India_BUB"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_BRANCH_3001"
+      },
+      "Name": "Sample Branch 3001",
+      "LOS_Code__c": "REF_BRANCH_3001",
+      "LOS_Unit_Type__c": "Branch",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_India_PB"
+    },
+    {
+      "attributes": {
+        "type": "LOS_Organization_Unit__c",
+        "referenceId": "REF_BRANCH_5001"
+      },
+      "Name": "Sample Branch 5001",
+      "LOS_Code__c": "REF_BRANCH_5001",
+      "LOS_Unit_Type__c": "Branch",
+      "LOS_Active__c": true,
+      "LOS_Parent_Unit__c": "@REF_India_PRB"
+    }
+  ]
+}

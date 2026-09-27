@@ -106,6 +106,8 @@
         <members>LOS_TransitionDTO</members>
         <members>LOS_ValidationException</members>
         <members>LOS_ValidationService</members>
+        <members>LOS_ValidationRegistry</members>
+        <members>LOS_ArchitectureHardeningTest</members>
         <name>ApexClass</name>
     </types>
     <types>

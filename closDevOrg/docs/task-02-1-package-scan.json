@@ -1,0 +1,12 @@
+{
+  "scope": "force-app/main/default",
+  "excluded": "Standard Salesforce/W3C metadata XML namespace URLs",
+  "findings": [],
+  "testFixtureNotes": [
+    "LOS_TestData dynamically looks up standard Minimum Access - Salesforce profile; no hard-coded profile ID.",
+    "Generated example.invalid user addresses are test fixtures.",
+    "Type.forName occurs only in the test sObject fixture deserializer."
+  ],
+  "namespace": "",
+  "packageCreation": "Deferred"
+}

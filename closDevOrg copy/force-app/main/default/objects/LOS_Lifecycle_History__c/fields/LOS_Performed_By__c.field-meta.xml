@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Performed_By__c</fullName>
+    <description>Performed By. See docs/data-dictionary.md for usage.</description>
+    <label>Performed By</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>LOS Lifecycle History Performed By</relationshipLabel>
+    <relationshipName>LOS_Lifecycle_History_Performed_By</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

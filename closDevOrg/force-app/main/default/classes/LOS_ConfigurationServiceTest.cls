@@ -87,6 +87,7 @@ private class LOS_ConfigurationServiceTest {
     );
     LOS_Stage__mdt draft = new LOS_Stage__mdt(
       MasterLabel = 'Draft',
+      LOS_Default_Application_Status__c = 'In Progress',
       LOS_Code__c = 'Draft',
       LOS_Active__c = true
     );

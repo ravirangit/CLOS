@@ -40,8 +40,16 @@ def main():
     objects = sorted(p.parent.name for p in (SOURCE/'objects').glob('*/*.object-meta.xml'))
     with ThreadPoolExecutor(max_workers=3) as pool:
         descriptions = list(pool.map(describe,objects))
-    stages = query('SELECT DeveloperName, LOS_Code__c, LOS_Sequence__c, LOS_Terminal_Stage__c, LOS_Active__c FROM LOS_Stage__mdt ORDER BY LOS_Sequence__c')
+    stages = query('SELECT DeveloperName, LOS_Code__c, LOS_Sequence__c, LOS_Terminal_Stage__c, LOS_Active__c, LOS_Default_Application_Status__c FROM LOS_Stage__mdt ORDER BY LOS_Sequence__c')
     assert len(stages)==9
+    expected_statuses = {}
+    for path in (SOURCE/'customMetadata').glob('LOS_Stage.*.xml'):
+        root = ET.parse(path).getroot()
+        values = {v.findtext('m:field',namespaces=NS):v.findtext('m:value',namespaces=NS) for v in root.findall('m:values',NS)}
+        expected_statuses[values['LOS_Code__c']] = values['LOS_Default_Application_Status__c']
+    actual_statuses = {s['LOS_Code__c']:s['LOS_Default_Application_Status__c'] for s in stages}
+    assert actual_statuses == expected_statuses
+
     expected_stages = ['Draft','Underwriting','RM_TL_Review','Credit_Review','Approved','Documentation','Ready_for_Booking','Booked','Monitoring']
     assert [s['LOS_Code__c'] for s in stages]==expected_stages
     assert all(s['LOS_Active__c'] for s in stages)
@@ -90,7 +98,7 @@ def main():
         deployed_triggers = query('SELECT Name, Status, ApiVersion FROM ApexTrigger WHERE Name IN ('+quoted+')',tooling=True)
         assert {r['Name'] for r in deployed_triggers} == set(trigger_names)
         assert all(r['Status']=='Active' and r['ApiVersion']==67 for r in deployed_triggers)
-    summary={'verifiedAt':datetime.now(timezone.utc).isoformat(),'targetOrgAlias':args.target_org,'status':'Passed','objects':descriptions,'stageCount':len(stages),'transitionCount':len(transitions),'reworkTransitionCount':sum(t['LOS_Transition_Type__c']=='Rework' for t in transitions),'applicationTypes':sorted(t['LOS_Code__c'] for t in types),'privateObjectCount':len(sharing),'objectPermissionCount':len(permissions),'referenceUnitCount':len(units),'apexClassCount':len(deployed_classes),'apexTriggerCount':len(deployed_triggers)}
+    summary={'verifiedAt':datetime.now(timezone.utc).isoformat(),'targetOrgAlias':args.target_org,'status':'Passed','objects':descriptions,'stageStatusMapping':actual_statuses,'stageCount':len(stages),'transitionCount':len(transitions),'reworkTransitionCount':sum(t['LOS_Transition_Type__c']=='Rework' for t in transitions),'applicationTypes':sorted(t['LOS_Code__c'] for t in types),'privateObjectCount':len(sharing),'objectPermissionCount':len(permissions),'referenceUnitCount':len(units),'apexClassCount':len(deployed_classes),'apexTriggerCount':len(deployed_triggers)}
     Path(args.output).write_text(json.dumps(summary,indent=2)+'\n')
     print(json.dumps(summary,indent=2))
 

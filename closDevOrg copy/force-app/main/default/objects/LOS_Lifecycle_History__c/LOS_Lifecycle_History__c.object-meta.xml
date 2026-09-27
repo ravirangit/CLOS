@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Immutable lifecycle events. Runtime-only insertion; triggers reject update, delete and undelete. The Task 01 immutable validation rule remains active.</description>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>LOS Lifecycle History</label>
+    <nameField>
+        <displayFormat>HIST-{00000000}</displayFormat>
+        <label>Record Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>LOS Lifecycle History Records</pluralLabel>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

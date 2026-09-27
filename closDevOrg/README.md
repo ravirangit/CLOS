@@ -1,5 +1,7 @@
 # LOS — configurable commercial lending runtime
 
+Task 02.1 separates Stage from Status and adds a controlled validator registry. See [architecture hardening and validation results](docs/task-02-1-architecture-hardening.md).
+
 Task 02 builds on the Task 01 foundation with application creation, configured lifecycle/rework, gross TAT, pause/resume, validation hooks, and server-side write protection. All product metadata and Apex remain in the single `force-app` package directory. No LWC, Flow, lending module, approval process or booking integration is included.
 
 ## Architecture principles
@@ -61,7 +63,7 @@ The configuration service caches each catalog per transaction and returns immuta
 | Assignment_TAT | Reserved assignment timing model; execution deferred. | 8 |
 | TAT_Pause | Controlled pauses with unique open key and captured counting policy. | 8 |
 
-There are 88 core custom fields and 82 configuration fields, excluding standard Name/OwnerId/audit fields. All nine core objects retain Private internal and external OWD. No metadata requirement from Task 01 was removed.
+There are 88 core custom fields and 83 configuration fields, excluding standard Name/OwnerId/audit fields. All nine core objects retain Private internal and external OWD. No metadata requirement from Task 01 was removed.
 
 ## Object relationships
 
@@ -147,11 +149,11 @@ The Python suite verifies the foundation's graph, namespace safety, configuratio
 
 ## Assumptions and deferred work
 
-- Status follows the configured stage code. Monitoring remains the reference terminal origination stage; no duplicate Draft/Underwriting or Rework stage is added.
+- Status derives from the destination stage’s configured default application status. Monitoring remains the reference terminal origination stage; no duplicate Draft/Underwriting or Rework stage is added.
 - Renewal/Modification require an accessible approved baseline under their editable reference flags. Approval dates and automatic latest-baseline selection are not implemented here.
 - Gross time is measured in UTC, accumulating milliseconds before rounding whole-minute fields down. Business Minutes stays null; a configured calendar produces Pending Calendar SLA status.
 - Validation hooks are trusted, registered Apex implementations and must be free of DML/callout side effects. Missing configured hooks fail closed.
 - Existing applications with null runtime versions and old open timing records require deliberate migration. No migration or repair bypass is shipped.
 - Approval-type graph edges do not execute approval decisions or authority checks. Approvals, booking, business calendars, assignment TAT, Visibility Engine, workspace UI, lending modules, integrations, retention, managed packaging and production concurrency/load/security review remain deferred.
 
-Task 02 stops here for architecture review.
+Task 02.1 stops here for architecture review.

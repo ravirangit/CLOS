@@ -235,7 +235,7 @@ public with sharing class LOS_RuntimeService {
             LOS_Relationship__c = relationship.Id,
             LOS_Application_Type__c = typeConfig.code,
             LOS_Current_Stage__c = initial.code,
-            LOS_Status__c = initial.code,
+            LOS_Status__c = initial.defaultApplicationStatus,
             LOS_Primary_RM__c = relationship.LOS_Primary_RM__c,
             LOS_Current_Owner_User__c = UserInfo.getUserId(),
             LOS_Organization_Unit__c = relationship.LOS_Primary_Organization_Unit__c,
@@ -322,7 +322,9 @@ public with sharing class LOS_RuntimeService {
           throw new LOS_LifecycleException(
             'This transition is not valid from the current stage.'
           );
-        LOS_ConfigurationService.getStage(transition.toStage);
+        LOS_ConfigurationService.Config destination = LOS_ConfigurationService.getStage(
+          transition.toStage
+        );
         LOS_ValidationService.Context context = new LOS_ValidationService.Context();
         context.application = app.clone(true, true, false, false);
         context.transition = transition;
@@ -349,7 +351,7 @@ public with sharing class LOS_RuntimeService {
           app.LOS_Current_Rework_Number__c = app.LOS_Rework_Count__c;
         }
         app.LOS_Current_Stage__c = transition.toStage;
-        app.LOS_Status__c = transition.toStage;
+        app.LOS_Status__c = destination.defaultApplicationStatus;
         app.LOS_Runtime_Version__c++;
         events.add(
           history(

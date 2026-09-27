@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Parent_Unit__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Parent Unit. See docs/data-dictionary.md for usage.</description>
+    <label>Parent Unit</label>
+    <referenceTo>LOS_Organization_Unit__c</referenceTo>
+    <relationshipLabel>LOS Organization Unit Parent Unit</relationshipLabel>
+    <relationshipName>LOS_Organization_Unit_Parent_Unit</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

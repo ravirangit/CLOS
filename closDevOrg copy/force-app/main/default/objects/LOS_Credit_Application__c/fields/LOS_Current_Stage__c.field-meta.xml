@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Current_Stage__c</fullName>
+    <description>Stable Stage metadata Code. Future lifecycle service validates active stages and transitions.</description>
+    <label>Current Stage</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+</CustomField>

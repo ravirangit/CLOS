@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Future workspace layout configuration; component keys must be resolved by an allowlisted registry.</description>
+    <label>LOS Workspace Section</label>
+    <pluralLabel>LOS Workspace Section Records</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

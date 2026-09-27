@@ -1,0 +1,92 @@
+{
+  "verifiedAt": "2026-09-27T11:42:53.236033+00:00",
+  "targetOrgAlias": "closDevOrg",
+  "status": "Passed",
+  "objects": [
+    {
+      "object": "LOS_Application_Team__c",
+      "verifiedCustomFields": 7
+    },
+    {
+      "object": "LOS_Application_Type__mdt",
+      "verifiedCustomFields": 6
+    },
+    {
+      "object": "LOS_Assignment_TAT__c",
+      "verifiedCustomFields": 8
+    },
+    {
+      "object": "LOS_Credit_Application__c",
+      "verifiedCustomFields": 20
+    },
+    {
+      "object": "LOS_Lifecycle_History__c",
+      "verifiedCustomFields": 9
+    },
+    {
+      "object": "LOS_Org_Unit_Type__mdt",
+      "verifiedCustomFields": 5
+    },
+    {
+      "object": "LOS_Organization_Unit__c",
+      "verifiedCustomFields": 6
+    },
+    {
+      "object": "LOS_Persona__mdt",
+      "verifiedCustomFields": 4
+    },
+    {
+      "object": "LOS_Relationship__c",
+      "verifiedCustomFields": 9
+    },
+    {
+      "object": "LOS_SLA_Rule__mdt",
+      "verifiedCustomFields": 13
+    },
+    {
+      "object": "LOS_Stage_TAT__c",
+      "verifiedCustomFields": 14
+    },
+    {
+      "object": "LOS_Stage_Transition__mdt",
+      "verifiedCustomFields": 12
+    },
+    {
+      "object": "LOS_Stage__mdt",
+      "verifiedCustomFields": 10
+    },
+    {
+      "object": "LOS_TAT_Pause_Rule__mdt",
+      "verifiedCustomFields": 9
+    },
+    {
+      "object": "LOS_TAT_Pause__c",
+      "verifiedCustomFields": 8
+    },
+    {
+      "object": "LOS_User_Org_Assignment__c",
+      "verifiedCustomFields": 7
+    },
+    {
+      "object": "LOS_Workspace_Action__mdt",
+      "verifiedCustomFields": 13
+    },
+    {
+      "object": "LOS_Workspace_Section__mdt",
+      "verifiedCustomFields": 10
+    }
+  ],
+  "stageCount": 9,
+  "transitionCount": 13,
+  "reworkTransitionCount": 5,
+  "applicationTypes": [
+    "Modification",
+    "New",
+    "Renewal"
+  ],
+  "privateObjectCount": 9,
+  "objectPermissionCount": 18,
+  "referenceUnitCount": 15,
+  "apexClassCount": 26,
+  "apexTriggerCount": 5
+}

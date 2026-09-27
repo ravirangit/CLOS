@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Stage_TAT__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Stage TAT. See docs/data-dictionary.md for usage.</description>
+    <label>Stage TAT</label>
+    <referenceTo>LOS_Stage_TAT__c</referenceTo>
+    <relationshipLabel>LOS TAT Pause Stage TAT</relationshipLabel>
+    <relationshipName>LOS_TAT_Pause_Stage_TAT</relationshipName>
+    <required>true</required>
+    <type>Lookup</type>
+</CustomField>

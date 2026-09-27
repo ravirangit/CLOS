@@ -11,6 +11,7 @@ public with sharing class LOS_ConfigurationService {
     public String code { get; private set; }
     public String componentKey { get; private set; }
     public Boolean countTowardSLA { get; private set; }
+    public String defaultApplicationStatus { get; private set; }
     public String description { get; private set; }
     public Boolean documentationStage { get; private set; }
     public Date effectiveFrom { get; private set; }
@@ -81,7 +82,8 @@ public with sharing class LOS_ConfigurationService {
             LOS_TAT_Enabled__c,
             LOS_Approval_Stage__c,
             LOS_Documentation_Stage__c,
-            LOS_Booking_Stage__c
+            LOS_Booking_Stage__c,
+            LOS_Default_Application_Status__c
           FROM LOS_Stage__mdt
           WITH SYSTEM_MODE
           ORDER BY DeveloperName
@@ -258,6 +260,9 @@ public with sharing class LOS_ConfigurationService {
             'LOS_Documentation_Stage__c'
           );
           c.bookingStage = (Boolean) row.get('LOS_Booking_Stage__c');
+          c.defaultApplicationStatus = (String) row.get(
+            'LOS_Default_Application_Status__c'
+          );
         }
         if (kind == 'Stage_Transition') {
           c.code = (String) row.get('LOS_Code__c');
@@ -444,7 +449,17 @@ public with sharing class LOS_ConfigurationService {
     return find(getApplicationTypes(), code);
   }
   public static Config getStage(String code) {
-    return find(getStages(), code);
+    Config stage = find(getStages(), code);
+    String status = stage.defaultApplicationStatus;
+    if (
+      String.isBlank(status) ||
+      status.length() > 255 ||
+      status != status.trim()
+    )
+      throw new LOS_ConfigurationException(
+        'The stage default application status is missing or invalid.'
+      );
+    return stage;
   }
   public static Config getInitialStage(String typeCode) {
     Config t = getApplicationType(typeCode);

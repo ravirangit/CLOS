@@ -44,7 +44,7 @@ Creation has no idempotency key: each successful creation command creates a dist
 ## Configuration dependencies
 
 - Every active application type needs an active, nonterminal `LOS_Initial_Stage__c`. The three reference types point to the single existing Draft record. New types and different initial stages require metadata changes only.
-- Status is initially and subsequently the configured stage code. A separate client status mapping is not invented.
+- Updated in Task 02.1: Status is initially and subsequently the configured stage default application status, independently of the stage code. See [architecture hardening](task-02-1-architecture-hardening.md).
 - Configured stage codes identify transaction state. Changing or disabling a used code requires a deliberate migration/configuration plan; runtime does not silently substitute a stage.
 - Active transition code resolution prefers an application-type-specific record over the global record. Codes must be unique within that scope. Inactive records are ignored; disabling a scoped record therefore allows an active global fallback. To disable a shared action, disable the applicable global configuration too.
 - Transition types are the engine protocol vocabulary Forward, Rework and Approval. No stage, graph edge, product, persona or hierarchy level is embedded in production Apex. `Initial` is a creation audit event, not a graph edge or lifecycle stage.
@@ -53,7 +53,7 @@ Creation has no idempotency key: each successful creation command creates a dist
 - SLA matching uses type, stage, stored organization-unit type and the acting user's active/effective unit memberships and application-team personas. Persona codes must also be active in metadata. No persona or organizational context comes from the request.
 - Effective SLA and membership dates are evaluated against the operation's UTC date. Highest SLA priority wins; ties at the winning priority fail closed. Invalid applicable targets, warning thresholds, or date ranges fail closed. Warning thresholds are validated but warning classification is deferred.
 - Target minutes and business-hours key are captured on the stage interval. With no applicable SLA rule, the target is null. No SLA value, pause reason or persona is shipped as a business default.
-- Validation policy keys resolve only through trusted Apex `registerHook` registrations. Blank policy with Requires Validation runs the basic checks. An unknown nonblank policy fails closed. Hooks may query data but must not perform DML or callouts; detected side effects fail and roll back the operation. Hook context is a copy, so changing it cannot change the pending application.
+- Updated in Task 02.1: Validation policy keys resolve through the product-owned `LOS_ValidationRegistry` allowlist. Dynamic registration is private and test-only; future product validators require explicit code entries. Blank policy with Requires Validation runs the basic checks. An unknown nonblank policy fails closed. Hooks may query data but must not perform DML or callouts; detected side effects fail and roll back the operation. Hook context is a copy, so changing it cannot change the pending application.
 
 `Config` wrappers have private setters. Returning a fresh list protects the cached collection. Test-only in-memory metadata overrides replace catalogs without inserting Custom Metadata records or bypassing production security. Real metadata is queried once per requested category per Apex transaction, including long-text fields.
 

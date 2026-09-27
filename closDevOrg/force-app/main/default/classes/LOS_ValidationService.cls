@@ -1,4 +1,4 @@
-/** Trusted Apex modules may register allowlisted hooks. No dynamic class names from metadata. */
+/** Basic validation and controlled policy execution through LOS_ValidationRegistry. */
 public with sharing class LOS_ValidationService {
   public class Result {
     public String severity { get; private set; }
@@ -25,19 +25,6 @@ public with sharing class LOS_ValidationService {
   }
   public interface Hook {
     List<Result> validate(Context context);
-  }
-  @TestVisible
-  private static Map<String, Hook> hooks = new Map<String, Hook>();
-  public static void registerHook(String code, Hook implementation) {
-    if (
-      String.isBlank(code) ||
-      implementation == null ||
-      hooks.containsKey(code)
-    )
-      throw new LOS_ConfigurationException(
-        'Validation hook registration is invalid.'
-      );
-    hooks.put(code, implementation);
   }
   public static List<Result> validate(Context context) {
     List<Result> results = new List<Result>();
@@ -79,11 +66,9 @@ public with sharing class LOS_ValidationService {
       context.transition.requiresValidation &&
       !String.isBlank(context.transition.validationPolicy)
     ) {
-      Hook implementation = hooks.get(context.transition.validationPolicy);
-      if (implementation == null)
-        throw new LOS_ConfigurationException(
-          'The configured validation policy is not registered.'
-        );
+      Hook implementation = LOS_ValidationRegistry.resolve(
+        context.transition.validationPolicy
+      );
       // Hooks receive a copy; changing the validation context cannot change the pending application.
       Integer beforeDml = Limits.getDmlStatements();
       Integer beforeCallouts = Limits.getCallouts();

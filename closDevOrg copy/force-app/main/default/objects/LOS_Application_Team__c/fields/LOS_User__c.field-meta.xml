@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_User__c</fullName>
+    <description>User. See docs/data-dictionary.md for usage.</description>
+    <label>User</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>LOS Application Team User</relationshipLabel>
+    <relationshipName>LOS_Application_Team_User</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

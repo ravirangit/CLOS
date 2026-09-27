@@ -1,0 +1,1204 @@
+{
+  "objects": {
+    "LOS_Application_Type__mdt": [
+      "LOS Application Type",
+      "Extensible application types. No compiled product-specific enum.",
+      true
+    ],
+    "LOS_Stage__mdt": [
+      "LOS Stage",
+      "Configurable lifecycle stages shared by application types. Rework is a transition, never a stage.",
+      true
+    ],
+    "LOS_Stage_Transition__mdt": [
+      "LOS Stage Transition",
+      "Allowed directed lifecycle edges; optional application-type scope. Specific scope overrides global scope by transition code.",
+      true
+    ],
+    "LOS_Persona__mdt": [
+      "LOS Persona",
+      "Business persona catalog; grants no Salesforce permissions or record access by itself.",
+      true
+    ],
+    "LOS_Workspace_Section__mdt": [
+      "LOS Workspace Section",
+      "Future workspace layout configuration; component keys must be resolved by an allowlisted registry.",
+      true
+    ],
+    "LOS_Workspace_Action__mdt": [
+      "LOS Workspace Action",
+      "Future workspace actions. Visibility does not authorize execution.",
+      true
+    ],
+    "LOS_SLA_Rule__mdt": [
+      "LOS SLA Rule",
+      "Configurable SLA targets; business hours are resolved by a portable key, not an org ID.",
+      true
+    ],
+    "LOS_TAT_Pause_Rule__mdt": [
+      "LOS TAT Pause Rule",
+      "Configured pause reasons and captured SLA-counting policy. Gross pause durations are measured by the runtime.",
+      true
+    ],
+    "LOS_Org_Unit_Type__mdt": [
+      "LOS Org Unit Type",
+      "Client-defined unit taxonomy. No fixed hierarchy depth or level semantics.",
+      true
+    ],
+    "LOS_Organization_Unit__c": [
+      "LOS Organization Unit",
+      "Generic organization hierarchy. Unit type resolves to active Org Unit Type metadata by Code.",
+      false
+    ],
+    "LOS_User_Org_Assignment__c": [
+      "LOS User Org Assignment",
+      "Many-to-many effective-dated user membership; interpreted by a future visibility engine.",
+      false
+    ],
+    "LOS_Relationship__c": [
+      "LOS Relationship",
+      "Customer relationship; current organization context may change independently of application snapshots.",
+      false
+    ],
+    "LOS_Credit_Application__c": [
+      "LOS Credit Application",
+      "Service-managed application with organization snapshots captured at creation, configured lifecycle state and optimistic runtime version.",
+      false
+    ],
+    "LOS_Application_Team__c": [
+      "LOS Application Team",
+      "Effective-dated application participation; supplements future organizational sharing.",
+      false
+    ],
+    "LOS_Lifecycle_History__c": [
+      "LOS Lifecycle History",
+      "Immutable lifecycle events. Runtime-only insertion; triggers reject update, delete and undelete. The Task 01 immutable validation rule remains active.",
+      false
+    ],
+    "LOS_Stage_TAT__c": [
+      "LOS Stage TAT",
+      "Service-managed stage interval with unique open context, captured SLA target/calendar key and gross duration measurements.",
+      false
+    ],
+    "LOS_Assignment_TAT__c": [
+      "LOS Assignment TAT",
+      "Assignment interval to exactly one user or queue key within a stage TAT.",
+      false
+    ],
+    "LOS_TAT_Pause__c": [
+      "LOS TAT Pause",
+      "Pause interval and captured SLA counting policy; parent application must match the stage interval.",
+      false
+    ]
+  },
+  "fields": {
+    "LOS_Application_Type__mdt": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Description__c": {
+        "label": "Description",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Sequence__c": {
+        "label": "Sequence",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Baseline_Required__c": {
+        "label": "Baseline Required",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Initial_Stage__c": {
+        "label": "Initial Stage",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Stage__mdt"
+      }
+    },
+    "LOS_Stage__mdt": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Description__c": {
+        "label": "Description",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Sequence__c": {
+        "label": "Sequence",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Display_Label__c": {
+        "label": "Display Label",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Terminal_Stage__c": {
+        "label": "Terminal Stage",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_TAT_Enabled__c": {
+        "label": "TAT Enabled",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Approval_Stage__c": {
+        "label": "Approval Stage",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Documentation_Stage__c": {
+        "label": "Documentation Stage",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Booking_Stage__c": {
+        "label": "Booking Stage",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Stage_Transition__mdt": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Description__c": {
+        "label": "Description",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_From_Stage__c": {
+        "label": "From Stage",
+        "type": "MetadataRelationship",
+        "required": true,
+        "reference": "LOS_Stage__mdt"
+      },
+      "LOS_To_Stage__c": {
+        "label": "To Stage",
+        "type": "MetadataRelationship",
+        "required": true,
+        "reference": "LOS_Stage__mdt"
+      },
+      "LOS_Application_Type__c": {
+        "label": "Application Type",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Application_Type__mdt"
+      },
+      "LOS_Transition_Type__c": {
+        "label": "Transition Type",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Action_Label__c": {
+        "label": "Action Label",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Requires_Reason__c": {
+        "label": "Requires Reason",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Requires_Validation__c": {
+        "label": "Requires Validation",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Validation_Policy_Code__c": {
+        "label": "Validation Policy Code",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Sequence__c": {
+        "label": "Sequence",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Persona__mdt": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Description__c": {
+        "label": "Description",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Display_Label__c": {
+        "label": "Display Label",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      }
+    },
+    "LOS_Workspace_Section__mdt": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Description__c": {
+        "label": "Description",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Application_Type__c": {
+        "label": "Application Type",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Application_Type__mdt"
+      },
+      "LOS_Stage__c": {
+        "label": "Stage",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Stage__mdt"
+      },
+      "LOS_Persona__c": {
+        "label": "Persona",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Persona__mdt"
+      },
+      "LOS_Display_Label__c": {
+        "label": "Display Label",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Component_Key__c": {
+        "label": "Component Key",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Visibility_Policy_Code__c": {
+        "label": "Visibility Policy Code",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Sequence__c": {
+        "label": "Sequence",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Workspace_Action__mdt": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Description__c": {
+        "label": "Description",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Application_Type__c": {
+        "label": "Application Type",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Application_Type__mdt"
+      },
+      "LOS_Stage__c": {
+        "label": "Stage",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Stage__mdt"
+      },
+      "LOS_Persona__c": {
+        "label": "Persona",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Persona__mdt"
+      },
+      "LOS_Section__c": {
+        "label": "Section",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Workspace_Section__mdt"
+      },
+      "LOS_Transition__c": {
+        "label": "Transition",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Stage_Transition__mdt"
+      },
+      "LOS_Display_Label__c": {
+        "label": "Display Label",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Handler_Key__c": {
+        "label": "Handler Key",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Authorization_Policy_Code__c": {
+        "label": "Authorization Policy Code",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Sequence__c": {
+        "label": "Sequence",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Requires_Confirmation__c": {
+        "label": "Requires Confirmation",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_SLA_Rule__mdt": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Description__c": {
+        "label": "Description",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Application_Type__c": {
+        "label": "Application Type",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Application_Type__mdt"
+      },
+      "LOS_Stage__c": {
+        "label": "Stage",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Stage__mdt"
+      },
+      "LOS_Persona__c": {
+        "label": "Persona",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Persona__mdt"
+      },
+      "LOS_Org_Unit_Type__c": {
+        "label": "Org Unit Type",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Org_Unit_Type__mdt"
+      },
+      "LOS_Target_Minutes__c": {
+        "label": "Target Minutes",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Warning_Minutes__c": {
+        "label": "Warning Minutes",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Priority__c": {
+        "label": "Priority",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Business_Hours_Key__c": {
+        "label": "Business Hours Key",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Effective_From__c": {
+        "label": "Effective From",
+        "type": "Date",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Effective_To__c": {
+        "label": "Effective To",
+        "type": "Date",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_TAT_Pause_Rule__mdt": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Description__c": {
+        "label": "Description",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Application_Type__c": {
+        "label": "Application Type",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Application_Type__mdt"
+      },
+      "LOS_Stage__c": {
+        "label": "Stage",
+        "type": "MetadataRelationship",
+        "required": false,
+        "reference": "LOS_Stage__mdt"
+      },
+      "LOS_Display_Label__c": {
+        "label": "Display Label",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Count_Toward_SLA__c": {
+        "label": "Count Toward SLA",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Requires_Comments__c": {
+        "label": "Requires Comments",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Sequence__c": {
+        "label": "Sequence",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Org_Unit_Type__mdt": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Description__c": {
+        "label": "Description",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Display_Label__c": {
+        "label": "Display Label",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Sequence__c": {
+        "label": "Sequence",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Organization_Unit__c": {
+      "LOS_Code__c": {
+        "label": "Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Unit_Type__c": {
+        "label": "Unit Type",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Parent_Unit__c": {
+        "label": "Parent Unit",
+        "type": "Lookup",
+        "required": false,
+        "reference": "LOS_Organization_Unit__c"
+      },
+      "LOS_Effective_From__c": {
+        "label": "Effective From",
+        "type": "Date",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Effective_To__c": {
+        "label": "Effective To",
+        "type": "Date",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_User_Org_Assignment__c": {
+      "LOS_User__c": {
+        "label": "User",
+        "type": "Lookup",
+        "required": false,
+        "reference": "User",
+        "businessRequired": true
+      },
+      "LOS_Organization_Unit__c": {
+        "label": "Organization Unit",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Organization_Unit__c"
+      },
+      "LOS_Persona_Code__c": {
+        "label": "Persona Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Access_Level__c": {
+        "label": "Access Level",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Effective_From__c": {
+        "label": "Effective From",
+        "type": "Date",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Effective_To__c": {
+        "label": "Effective To",
+        "type": "Date",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Relationship__c": {
+      "LOS_Relationship_Number__c": {
+        "label": "Relationship Number",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Account__c": {
+        "label": "Account",
+        "type": "Lookup",
+        "required": true,
+        "reference": "Account"
+      },
+      "LOS_Primary_RM__c": {
+        "label": "Primary RM",
+        "type": "Lookup",
+        "required": false,
+        "reference": "User"
+      },
+      "LOS_Primary_Organization_Unit__c": {
+        "label": "Primary Organization Unit",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Organization_Unit__c"
+      },
+      "LOS_Business_Unit_Snapshot__c": {
+        "label": "Business Unit Snapshot",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Segment_Snapshot__c": {
+        "label": "Segment Snapshot",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Branch_Snapshot__c": {
+        "label": "Branch Snapshot",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Status__c": {
+        "label": "Status",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Credit_Application__c": {
+      "LOS_Relationship__c": {
+        "label": "Relationship",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Relationship__c"
+      },
+      "LOS_Application_Type__c": {
+        "label": "Application Type",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Current_Stage__c": {
+        "label": "Current Stage",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Status__c": {
+        "label": "Status",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Primary_RM__c": {
+        "label": "Primary RM",
+        "type": "Lookup",
+        "required": false,
+        "reference": "User"
+      },
+      "LOS_Current_Owner_User__c": {
+        "label": "Current Owner User",
+        "type": "Lookup",
+        "required": false,
+        "reference": "User"
+      },
+      "LOS_Current_Queue_Key__c": {
+        "label": "Current Queue Key",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Organization_Unit__c": {
+        "label": "Organization Unit",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Organization_Unit__c"
+      },
+      "LOS_Business_Unit_Snapshot__c": {
+        "label": "Business Unit Snapshot",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Segment_Snapshot__c": {
+        "label": "Segment Snapshot",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Branch_Snapshot__c": {
+        "label": "Branch Snapshot",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Rework_Count__c": {
+        "label": "Rework Count",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Current_Rework_Number__c": {
+        "label": "Current Rework Number",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Submitted_Date__c": {
+        "label": "Submitted Date",
+        "type": "DateTime",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Approved_Date__c": {
+        "label": "Approved Date",
+        "type": "DateTime",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Booking_Date__c": {
+        "label": "Booking Date",
+        "type": "DateTime",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Baseline_Application__c": {
+        "label": "Baseline Application",
+        "type": "Lookup",
+        "required": false,
+        "reference": "LOS_Credit_Application__c"
+      },
+      "LOS_Previous_Approved_Application__c": {
+        "label": "Previous Approved Application",
+        "type": "Lookup",
+        "required": false,
+        "reference": "LOS_Credit_Application__c"
+      },
+      "LOS_Runtime_Version__c": {
+        "label": "Runtime Version",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Application_Team__c": {
+      "LOS_Credit_Application__c": {
+        "label": "Credit Application",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Credit_Application__c"
+      },
+      "LOS_User__c": {
+        "label": "User",
+        "type": "Lookup",
+        "required": false,
+        "reference": "User",
+        "businessRequired": true
+      },
+      "LOS_Persona_Code__c": {
+        "label": "Persona Code",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Access_Level__c": {
+        "label": "Access Level",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Effective_From__c": {
+        "label": "Effective From",
+        "type": "Date",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Effective_To__c": {
+        "label": "Effective To",
+        "type": "Date",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Active__c": {
+        "label": "Active",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Lifecycle_History__c": {
+      "LOS_Credit_Application__c": {
+        "label": "Credit Application",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Credit_Application__c"
+      },
+      "LOS_From_Stage__c": {
+        "label": "From Stage",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_To_Stage__c": {
+        "label": "To Stage",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Transition_Type__c": {
+        "label": "Transition Type",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Transition_Date_Time__c": {
+        "label": "Transition Date Time",
+        "type": "DateTime",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Performed_By__c": {
+        "label": "Performed By",
+        "type": "Lookup",
+        "required": false,
+        "reference": "User",
+        "businessRequired": true
+      },
+      "LOS_Reason__c": {
+        "label": "Reason",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Comments__c": {
+        "label": "Comments",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Rework_Number__c": {
+        "label": "Rework Number",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Stage_TAT__c": {
+      "LOS_Application__c": {
+        "label": "Application",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Credit_Application__c"
+      },
+      "LOS_Stage__c": {
+        "label": "Stage",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Rework_Number__c": {
+        "label": "Rework Number",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Start_Date_Time__c": {
+        "label": "Start Date Time",
+        "type": "DateTime",
+        "required": true,
+        "reference": null
+      },
+      "LOS_End_Date_Time__c": {
+        "label": "End Date Time",
+        "type": "DateTime",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Gross_Minutes__c": {
+        "label": "Gross Minutes",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Business_Minutes__c": {
+        "label": "Business Minutes",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Paused_Minutes__c": {
+        "label": "Paused Minutes",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_SLA_Target_Minutes__c": {
+        "label": "SLA Target Minutes",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_SLA_Status__c": {
+        "label": "SLA Status",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Started_By__c": {
+        "label": "Started By",
+        "type": "Lookup",
+        "required": false,
+        "reference": "User",
+        "businessRequired": true
+      },
+      "LOS_Completed_By__c": {
+        "label": "Completed By",
+        "type": "Lookup",
+        "required": false,
+        "reference": "User"
+      },
+      "LOS_Calendar_Key__c": {
+        "label": "Calendar Key",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Open_Context_Key__c": {
+        "label": "Open Context Key",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      }
+    },
+    "LOS_Assignment_TAT__c": {
+      "LOS_Stage_TAT__c": {
+        "label": "Stage TAT",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Stage_TAT__c"
+      },
+      "LOS_Application__c": {
+        "label": "Application",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Credit_Application__c"
+      },
+      "LOS_User__c": {
+        "label": "User",
+        "type": "Lookup",
+        "required": false,
+        "reference": "User"
+      },
+      "LOS_Queue_Key__c": {
+        "label": "Queue Key",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Assignment_Start__c": {
+        "label": "Assignment Start",
+        "type": "DateTime",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Assignment_End__c": {
+        "label": "Assignment End",
+        "type": "DateTime",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Business_Minutes__c": {
+        "label": "Business Minutes",
+        "type": "Number",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Assignment_Type__c": {
+        "label": "Assignment Type",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      }
+    },
+    "LOS_TAT_Pause__c": {
+      "LOS_Stage_TAT__c": {
+        "label": "Stage TAT",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Stage_TAT__c"
+      },
+      "LOS_Application__c": {
+        "label": "Application",
+        "type": "Lookup",
+        "required": true,
+        "reference": "LOS_Credit_Application__c"
+      },
+      "LOS_Pause_Reason__c": {
+        "label": "Pause Reason",
+        "type": "Text",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Pause_Start__c": {
+        "label": "Pause Start",
+        "type": "DateTime",
+        "required": true,
+        "reference": null
+      },
+      "LOS_Pause_End__c": {
+        "label": "Pause End",
+        "type": "DateTime",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Count_Toward_SLA__c": {
+        "label": "Count Toward SLA",
+        "type": "Checkbox",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Comments__c": {
+        "label": "Comments",
+        "type": "LongTextArea",
+        "required": false,
+        "reference": null
+      },
+      "LOS_Open_Context_Key__c": {
+        "label": "Open Context Key",
+        "type": "Text",
+        "required": false,
+        "reference": null
+      }
+    }
+  },
+  "rules": {
+    "LOS_Application_Type__mdt": [],
+    "LOS_Stage__mdt": [],
+    "LOS_Stage_Transition__mdt": [],
+    "LOS_Persona__mdt": [],
+    "LOS_Workspace_Section__mdt": [],
+    "LOS_Workspace_Action__mdt": [],
+    "LOS_SLA_Rule__mdt": [],
+    "LOS_TAT_Pause_Rule__mdt": [],
+    "LOS_Org_Unit_Type__mdt": [],
+    "LOS_Organization_Unit__c": [
+      "LOS_Effective_Dates",
+      "LOS_No_Self_Parent"
+    ],
+    "LOS_User_Org_Assignment__c": [
+      "LOS_Effective_Dates",
+      "LOS_Required_User"
+    ],
+    "LOS_Relationship__c": [],
+    "LOS_Credit_Application__c": [
+      "LOS_No_Self_Reference",
+      "LOS_Nonnegative_Measures"
+    ],
+    "LOS_Application_Team__c": [
+      "LOS_Effective_Dates",
+      "LOS_Required_User"
+    ],
+    "LOS_Lifecycle_History__c": [
+      "LOS_Immutable_History",
+      "LOS_Nonnegative_Measures",
+      "LOS_Required_Performed_By"
+    ],
+    "LOS_Stage_TAT__c": [
+      "LOS_Date_Order",
+      "LOS_Nonnegative_Measures",
+      "LOS_Required_Started_By"
+    ],
+    "LOS_Assignment_TAT__c": [
+      "LOS_Date_Order",
+      "LOS_Exactly_One_Assignee",
+      "LOS_Matching_Application",
+      "LOS_Nonnegative_Measures"
+    ],
+    "LOS_TAT_Pause__c": [
+      "LOS_Date_Order",
+      "LOS_Matching_Application"
+    ]
+  }
+}

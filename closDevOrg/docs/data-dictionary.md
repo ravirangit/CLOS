@@ -1,4 +1,4 @@
-# LOS data dictionary — through Task 02
+# LOS data dictionary — through Task 02.1
 
 API names are unnamespaced source names. Standard Name and OwnerId are not included in custom-field counts. All nine core objects have Private internal/external OWD. Runtime guards control application, history and TAT writes. See [runtime architecture](task-02-runtime.md).
 
@@ -33,6 +33,7 @@ Configurable lifecycle stages shared by application types. Rework is a transitio
 | LOS_Approval_Stage__c | Checkbox | No |  |
 | LOS_Documentation_Stage__c | Checkbox | No |  |
 | LOS_Booking_Stage__c | Checkbox | No |  |
+| LOS_Default_Application_Status__c | Text(255) | Runtime configuration validation |  |
 
 Validation rules: None.
 

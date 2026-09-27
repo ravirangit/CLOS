@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Validation_Policy_Code__c</fullName>
+    <description>Declarative policy key for a future validation engine. Never executable code.</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Validation Policy Code</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

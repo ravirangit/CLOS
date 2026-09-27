@@ -1,0 +1,207 @@
+{
+  "task": "02.1",
+  "targetOrgAlias": "closDevOrg",
+  "deploymentId": "0Afbm00000hEw50CAC",
+  "status": "Succeeded",
+  "completedDate": "2026-09-27T12:28:28.000Z",
+  "testLevel": "RunLocalTests",
+  "componentsDeployed": 288,
+  "testsPassed": 51,
+  "testFailures": 0,
+  "testsByClass": {
+    "LOS_ApplicationServiceTest": 7,
+    "LOS_ArchitectureHardeningTest": 7,
+    "LOS_ConfigurationServiceTest": 6,
+    "LOS_LifecycleServiceTest": 17,
+    "LOS_SecurityTest": 5,
+    "LOS_TATServiceTest": 9
+  },
+  "aggregateCoverage": {
+    "coveredLocations": 1116,
+    "totalLocations": 1221,
+    "percent": 91.4
+  },
+  "coverageByComponent": [
+    {
+      "name": "LOS_LifecycleException",
+      "covered": 0,
+      "total": 0
+    },
+    {
+      "name": "LOS_RuntimeService",
+      "covered": 338,
+      "total": 375
+    },
+    {
+      "name": "LOS_HistoryGuard",
+      "covered": 5,
+      "total": 5
+    },
+    {
+      "name": "LOS_Security",
+      "covered": 33,
+      "total": 37
+    },
+    {
+      "name": "LOS_ApplicationGuard",
+      "covered": 5,
+      "total": 5
+    },
+    {
+      "name": "LOS_ConfigurationException",
+      "covered": 0,
+      "total": 0
+    },
+    {
+      "name": "LOS_StageTATGuard",
+      "covered": 5,
+      "total": 5
+    },
+    {
+      "name": "LOS_ValidationRegistry",
+      "covered": 20,
+      "total": 20
+    },
+    {
+      "name": "LOS_ValidationException",
+      "covered": 1,
+      "total": 1
+    },
+    {
+      "name": "LOS_TATService",
+      "covered": 101,
+      "total": 117
+    },
+    {
+      "name": "LOS_ApplicationService",
+      "covered": 14,
+      "total": 14
+    },
+    {
+      "name": "LOS_TATDTO",
+      "covered": 11,
+      "total": 11
+    },
+    {
+      "name": "LOS_SecurityException",
+      "covered": 0,
+      "total": 0
+    },
+    {
+      "name": "LOS_PauseGuard",
+      "covered": 5,
+      "total": 5
+    },
+    {
+      "name": "LOS_RuntimeData",
+      "covered": 67,
+      "total": 76
+    },
+    {
+      "name": "LOS_LifecycleService",
+      "covered": 33,
+      "total": 33
+    },
+    {
+      "name": "LOS_RuntimeWriter",
+      "covered": 13,
+      "total": 13
+    },
+    {
+      "name": "LOS_AssignmentTATGuard",
+      "covered": 5,
+      "total": 5
+    },
+    {
+      "name": "LOS_Exception",
+      "covered": 6,
+      "total": 7
+    },
+    {
+      "name": "LOS_ConfigurationService",
+      "covered": 353,
+      "total": 374
+    },
+    {
+      "name": "LOS_BusinessTimeService",
+      "covered": 18,
+      "total": 18
+    },
+    {
+      "name": "LOS_ValidationService",
+      "covered": 49,
+      "total": 66
+    },
+    {
+      "name": "LOS_ApplicationDTO",
+      "covered": 15,
+      "total": 15
+    },
+    {
+      "name": "LOS_TransitionDTO",
+      "covered": 11,
+      "total": 11
+    },
+    {
+      "name": "LOS_TATException",
+      "covered": 0,
+      "total": 0
+    },
+    {
+      "name": "LOS_RecordGuard",
+      "covered": 8,
+      "total": 8
+    }
+  ],
+  "coverageWarnings": [],
+  "validationId": "0Afbm00000hEvX7CAK",
+  "offlineChecksPassed": 7,
+  "existingApplicationCountBeforeDeployment": 0,
+  "initialValidationIssue": "One new test exceeded SOQL limits by combining setup with a multi-command scenario. Moved setup before Test.startTest; subsequent dry run and deployment both passed all 51 tests.",
+  "deploymentCommand": "sf project deploy start --source-dir force-app --target-org closDevOrg --test-level RunLocalTests --wait 10 --json",
+  "metadataTotals": {
+    "customMetadataTypes": 9,
+    "coreObjects": 9,
+    "customFields": 171,
+    "apexClasses": 28,
+    "guardTriggers": 5
+  },
+  "architectureChangedBeyondRequestedRemediation": false,
+  "filesCreated": [
+    "docs/task-02-1-architecture-hardening.md",
+    "docs/task-02-1-org-verification.json",
+    "docs/task-02-1-package-scan.json",
+    "docs/task-02-1-results.json",
+    "force-app/main/default/classes/LOS_ArchitectureHardeningTest.cls",
+    "force-app/main/default/classes/LOS_ArchitectureHardeningTest.cls-meta.xml",
+    "force-app/main/default/classes/LOS_ValidationRegistry.cls",
+    "force-app/main/default/classes/LOS_ValidationRegistry.cls-meta.xml",
+    "force-app/main/default/objects/LOS_Stage__mdt/fields/LOS_Default_Application_Status__c.field-meta.xml"
+  ],
+  "filesModified": [
+    "README.md",
+    "docs/data-dictionary.md",
+    "docs/schema.json",
+    "docs/task-02-runtime.md",
+    "force-app/main/default/classes/LOS_ApplicationServiceTest.cls",
+    "force-app/main/default/classes/LOS_ConfigurationService.cls",
+    "force-app/main/default/classes/LOS_ConfigurationServiceTest.cls",
+    "force-app/main/default/classes/LOS_LifecycleServiceTest.cls",
+    "force-app/main/default/classes/LOS_RuntimeService.cls",
+    "force-app/main/default/classes/LOS_ValidationService.cls",
+    "force-app/main/default/customMetadata/LOS_Stage.Approved.md-meta.xml",
+    "force-app/main/default/customMetadata/LOS_Stage.Booked.md-meta.xml",
+    "force-app/main/default/customMetadata/LOS_Stage.Credit_Review.md-meta.xml",
+    "force-app/main/default/customMetadata/LOS_Stage.Documentation.md-meta.xml",
+    "force-app/main/default/customMetadata/LOS_Stage.Draft.md-meta.xml",
+    "force-app/main/default/customMetadata/LOS_Stage.Monitoring.md-meta.xml",
+    "force-app/main/default/customMetadata/LOS_Stage.RM_TL_Review.md-meta.xml",
+    "force-app/main/default/customMetadata/LOS_Stage.Ready_for_Booking.md-meta.xml",
+    "force-app/main/default/customMetadata/LOS_Stage.Underwriting.md-meta.xml",
+    "force-app/main/default/layouts/LOS_Stage__mdt-LOS Layout.layout-meta.xml",
+    "manifest/package.xml",
+    "scripts/validation/validate_foundation.py",
+    "scripts/validation/verify_deployed.py"
+  ],
+  "orgVerification": "Passed"
+}

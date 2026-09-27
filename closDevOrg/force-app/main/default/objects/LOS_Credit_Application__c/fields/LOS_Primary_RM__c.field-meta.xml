@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Primary_RM__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Primary RM. See docs/data-dictionary.md for usage.</description>
+    <label>Primary RM</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>LOS Credit Application Primary RM</relationshipLabel>
+    <relationshipName>LOS_Credit_Application_Primary_RM</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

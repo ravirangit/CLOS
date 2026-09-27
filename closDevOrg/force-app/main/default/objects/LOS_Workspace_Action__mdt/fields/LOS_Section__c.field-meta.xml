@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Section__c</fullName>
+    <description>Section. See docs/data-dictionary.md for usage.</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Section</label>
+    <referenceTo>LOS_Workspace_Section__mdt</referenceTo>
+    <relationshipLabel>LOS Workspace Action Section</relationshipLabel>
+    <relationshipName>LOS_Workspace_Action_Section</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Pause interval and captured SLA counting policy; parent application must match the stage interval.</description>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>LOS TAT Pause</label>
+    <nameField>
+        <displayFormat>PAUSE-{00000000}</displayFormat>
+        <label>Record Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>LOS TAT Pause Records</pluralLabel>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

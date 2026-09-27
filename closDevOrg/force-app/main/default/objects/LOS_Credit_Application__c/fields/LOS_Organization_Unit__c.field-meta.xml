@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Organization_Unit__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Organization Unit. See docs/data-dictionary.md for usage.</description>
+    <label>Organization Unit</label>
+    <referenceTo>LOS_Organization_Unit__c</referenceTo>
+    <relationshipLabel>LOS Credit Application Organization Unit</relationshipLabel>
+    <relationshipName>LOS_Credit_Application_Organization_Unit</relationshipName>
+    <required>true</required>
+    <type>Lookup</type>
+</CustomField>

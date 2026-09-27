@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Effective-dated application participation; supplements future organizational sharing.</description>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>LOS Application Team</label>
+    <nameField>
+        <displayFormat>TEAM-{00000000}</displayFormat>
+        <label>Record Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>LOS Application Team Records</pluralLabel>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

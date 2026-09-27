@@ -1,0 +1,175 @@
+{
+  "targetOrg": "closDevOrg",
+  "checkOnlyDeploymentId": "0Afbm00000hEmgjCAC",
+  "deploymentId": "0Afbm00000hEmwrCAC",
+  "status": "Succeeded",
+  "completedDate": "2026-09-27T11:42:14.000Z",
+  "componentsDeployed": 285,
+  "componentErrors": 0,
+  "testsPassed": 44,
+  "testErrors": 0,
+  "testsByClass": {
+    "LOS_ApplicationServiceTest": 7,
+    "LOS_ConfigurationServiceTest": 6,
+    "LOS_LifecycleServiceTest": 17,
+    "LOS_SecurityTest": 5,
+    "LOS_TATServiceTest": 9
+  },
+  "coveragePercentage": 91.08,
+  "coveredLocations": 1093,
+  "totalLocations": 1200,
+  "coverageByComponent": [
+    {
+      "name": "LOS_ApplicationDTO",
+      "covered": 15,
+      "total": 15,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_ApplicationGuard",
+      "covered": 5,
+      "total": 5,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_ApplicationService",
+      "covered": 14,
+      "total": 14,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_AssignmentTATGuard",
+      "covered": 5,
+      "total": 5,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_BusinessTimeService",
+      "covered": 18,
+      "total": 18,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_ConfigurationException",
+      "covered": 0,
+      "total": 0,
+      "percentage": null
+    },
+    {
+      "name": "LOS_ConfigurationService",
+      "covered": 342,
+      "total": 363,
+      "percentage": 94.21
+    },
+    {
+      "name": "LOS_Exception",
+      "covered": 6,
+      "total": 7,
+      "percentage": 85.71
+    },
+    {
+      "name": "LOS_HistoryGuard",
+      "covered": 5,
+      "total": 5,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_LifecycleException",
+      "covered": 0,
+      "total": 0,
+      "percentage": null
+    },
+    {
+      "name": "LOS_LifecycleService",
+      "covered": 33,
+      "total": 33,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_PauseGuard",
+      "covered": 5,
+      "total": 5,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_RecordGuard",
+      "covered": 8,
+      "total": 8,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_RuntimeData",
+      "covered": 67,
+      "total": 76,
+      "percentage": 88.16
+    },
+    {
+      "name": "LOS_RuntimeService",
+      "covered": 337,
+      "total": 374,
+      "percentage": 90.11
+    },
+    {
+      "name": "LOS_RuntimeWriter",
+      "covered": 13,
+      "total": 13,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_Security",
+      "covered": 33,
+      "total": 37,
+      "percentage": 89.19
+    },
+    {
+      "name": "LOS_SecurityException",
+      "covered": 0,
+      "total": 0,
+      "percentage": null
+    },
+    {
+      "name": "LOS_StageTATGuard",
+      "covered": 5,
+      "total": 5,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_TATDTO",
+      "covered": 11,
+      "total": 11,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_TATException",
+      "covered": 0,
+      "total": 0,
+      "percentage": null
+    },
+    {
+      "name": "LOS_TATService",
+      "covered": 101,
+      "total": 117,
+      "percentage": 86.32
+    },
+    {
+      "name": "LOS_TransitionDTO",
+      "covered": 11,
+      "total": 11,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_ValidationException",
+      "covered": 1,
+      "total": 1,
+      "percentage": 100.0
+    },
+    {
+      "name": "LOS_ValidationService",
+      "covered": 58,
+      "total": 77,
+      "percentage": 75.32
+    }
+  ],
+  "coverageWarnings": [],
+  "preDeploymentApplicationCount": 0
+}

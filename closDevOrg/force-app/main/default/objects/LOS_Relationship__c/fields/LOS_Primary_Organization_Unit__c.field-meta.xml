@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Primary_Organization_Unit__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Primary Organization Unit. See docs/data-dictionary.md for usage.</description>
+    <label>Primary Organization Unit</label>
+    <referenceTo>LOS_Organization_Unit__c</referenceTo>
+    <relationshipLabel>LOS Relationship Primary Organization Unit</relationshipLabel>
+    <relationshipName>LOS_Relationship_Primary_Organization_Un</relationshipName>
+    <required>true</required>
+    <type>Lookup</type>
+</CustomField>

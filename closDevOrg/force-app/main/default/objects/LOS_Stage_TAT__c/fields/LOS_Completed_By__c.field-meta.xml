@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Completed_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Completed By. See docs/data-dictionary.md for usage.</description>
+    <label>Completed By</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>LOS Stage TAT Completed By</relationshipLabel>
+    <relationshipName>LOS_Stage_TAT_Completed_By</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allowed directed lifecycle edges; optional application-type scope. Specific scope overrides global scope by transition code.</description>
+    <label>LOS Stage Transition</label>
+    <pluralLabel>LOS Stage Transition Records</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

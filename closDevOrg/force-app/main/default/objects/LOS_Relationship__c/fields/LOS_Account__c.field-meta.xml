@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Account__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Account. See docs/data-dictionary.md for usage.</description>
+    <label>Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>LOS Relationship Account</relationshipLabel>
+    <relationshipName>LOS_Relationship_Account</relationshipName>
+    <required>true</required>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Org_Unit_Type__c</fullName>
+    <description>Org Unit Type. See docs/data-dictionary.md for usage.</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Org Unit Type</label>
+    <referenceTo>LOS_Org_Unit_Type__mdt</referenceTo>
+    <relationshipLabel>LOS SLA Rule Org Unit Type</relationshipLabel>
+    <relationshipName>LOS_SLA_Rule_Org_Unit_Type</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+</CustomField>

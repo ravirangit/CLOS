@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Business persona catalog; grants no Salesforce permissions or record access by itself.</description>
+    <label>LOS Persona</label>
+    <pluralLabel>LOS Persona Records</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

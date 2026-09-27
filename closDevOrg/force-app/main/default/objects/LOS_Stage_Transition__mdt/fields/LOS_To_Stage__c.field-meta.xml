@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_To_Stage__c</fullName>
+    <description>To Stage. See docs/data-dictionary.md for usage.</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>To Stage</label>
+    <referenceTo>LOS_Stage__mdt</referenceTo>
+    <relationshipLabel>LOS Stage Transition To Stage</relationshipLabel>
+    <relationshipName>LOS_Stage_Transition_To_Stage</relationshipName>
+    <required>true</required>
+    <type>MetadataRelationship</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Many-to-many effective-dated user membership; interpreted by a future visibility engine.</description>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>LOS User Org Assignment</label>
+    <nameField>
+        <displayFormat>UOA-{00000000}</displayFormat>
+        <label>Record Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>LOS User Org Assignment Records</pluralLabel>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

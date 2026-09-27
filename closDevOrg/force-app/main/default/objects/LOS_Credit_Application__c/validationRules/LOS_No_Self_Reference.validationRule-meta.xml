@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_No_Self_Reference</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(AND(NOT(ISBLANK(LOS_Baseline_Application__c)), LOS_Baseline_Application__c = Id), AND(NOT(ISBLANK(LOS_Previous_Approved_Application__c)), LOS_Previous_Approved_Application__c = Id))</errorConditionFormula>
+    <errorMessage>Application lineage cannot reference itself.</errorMessage>
+</ValidationRule>

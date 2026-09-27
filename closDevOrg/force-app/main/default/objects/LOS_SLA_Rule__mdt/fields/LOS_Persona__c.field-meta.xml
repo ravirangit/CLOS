@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Persona__c</fullName>
+    <description>Persona. See docs/data-dictionary.md for usage.</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Persona</label>
+    <referenceTo>LOS_Persona__mdt</referenceTo>
+    <relationshipLabel>LOS SLA Rule Persona</relationshipLabel>
+    <relationshipName>LOS_SLA_Rule_Persona</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+</CustomField>

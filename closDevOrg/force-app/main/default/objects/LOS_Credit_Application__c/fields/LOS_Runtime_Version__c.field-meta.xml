@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Runtime_Version__c</fullName>
+    <description>Controlled by LOS runtime services. See docs/task-02-runtime.md.</description>
+    <label>Runtime Version</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_No_Self_Parent</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK(LOS_Parent_Unit__c)), LOS_Parent_Unit__c = Id)</errorConditionFormula>
+    <errorMessage>An organization unit cannot be its own parent.</errorMessage>
+</ValidationRule>

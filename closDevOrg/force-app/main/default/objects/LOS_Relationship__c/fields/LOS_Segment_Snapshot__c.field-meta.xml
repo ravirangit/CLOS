@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Segment_Snapshot__c</fullName>
+    <description>Stored segment code at capture time; never a cross-object formula. Context only, not a sharing grant.</description>
+    <label>Segment Snapshot</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

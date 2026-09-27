@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Nonnegative_Measures</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(LOS_Rework_Count__c &lt; 0,LOS_Current_Rework_Number__c &lt; 0)</errorConditionFormula>
+    <errorMessage>Counts and minutes cannot be negative.</errorMessage>
+</ValidationRule>

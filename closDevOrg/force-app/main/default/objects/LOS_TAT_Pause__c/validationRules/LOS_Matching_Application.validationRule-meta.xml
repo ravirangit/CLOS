@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Matching_Application</fullName>
+    <active>true</active>
+    <errorConditionFormula>LOS_Application__c &lt;&gt; LOS_Stage_TAT__r.LOS_Application__c</errorConditionFormula>
+    <errorMessage>Application must match the parent stage TAT application.</errorMessage>
+</ValidationRule>

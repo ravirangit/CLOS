@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Client-defined unit taxonomy. No fixed hierarchy depth or level semantics.</description>
+    <label>LOS Org Unit Type</label>
+    <pluralLabel>LOS Org Unit Type Records</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

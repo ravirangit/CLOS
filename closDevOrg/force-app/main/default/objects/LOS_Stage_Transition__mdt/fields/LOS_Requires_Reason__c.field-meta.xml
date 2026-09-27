@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOS_Requires_Reason__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Requires Reason. See docs/data-dictionary.md for usage.</description>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Requires Reason</label>
+    <type>Checkbox</type>
+</CustomField>

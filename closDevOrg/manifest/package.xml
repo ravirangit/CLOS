@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>LOS_Application_Team__c</members>
+        <members>LOS_Application_Type__mdt</members>
+        <members>LOS_Assignment_TAT__c</members>
+        <members>LOS_Credit_Application__c</members>
+        <members>LOS_Lifecycle_History__c</members>
+        <members>LOS_Org_Unit_Type__mdt</members>
+        <members>LOS_Organization_Unit__c</members>
+        <members>LOS_Persona__mdt</members>
+        <members>LOS_Relationship__c</members>
+        <members>LOS_SLA_Rule__mdt</members>
+        <members>LOS_Stage_TAT__c</members>
+        <members>LOS_Stage_Transition__mdt</members>
+        <members>LOS_Stage__mdt</members>
+        <members>LOS_TAT_Pause_Rule__mdt</members>
+        <members>LOS_TAT_Pause__c</members>
+        <members>LOS_User_Org_Assignment__c</members>
+        <members>LOS_Workspace_Action__mdt</members>
+        <members>LOS_Workspace_Section__mdt</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>LOS_Application_Type.Modification</members>
+        <members>LOS_Application_Type.New</members>
+        <members>LOS_Application_Type.Renewal</members>
+        <members>LOS_Stage.Approved</members>
+        <members>LOS_Stage.Booked</members>
+        <members>LOS_Stage.Credit_Review</members>
+        <members>LOS_Stage.Documentation</members>
+        <members>LOS_Stage.Draft</members>
+        <members>LOS_Stage.Monitoring</members>
+        <members>LOS_Stage.RM_TL_Review</members>
+        <members>LOS_Stage.Ready_for_Booking</members>
+        <members>LOS_Stage.Underwriting</members>
+        <members>LOS_Stage_Transition.Approved_To_Documentation</members>
+        <members>LOS_Stage_Transition.Booked_To_Monitoring</members>
+        <members>LOS_Stage_Transition.Credit_Review_To_Approved</members>
+        <members>LOS_Stage_Transition.Credit_Review_To_Draft</members>
+        <members>LOS_Stage_Transition.Credit_Review_To_RM_TL_Review</members>
+        <members>LOS_Stage_Transition.Credit_Review_To_Underwriting</members>
+        <members>LOS_Stage_Transition.Documentation_To_Ready_for_Booking</members>
+        <members>LOS_Stage_Transition.Draft_To_Underwriting</members>
+        <members>LOS_Stage_Transition.RM_TL_Review_To_Credit_Review</members>
+        <members>LOS_Stage_Transition.RM_TL_Review_To_Draft</members>
+        <members>LOS_Stage_Transition.RM_TL_Review_To_Underwriting</members>
+        <members>LOS_Stage_Transition.Ready_for_Booking_To_Booked</members>
+        <members>LOS_Stage_Transition.Underwriting_To_RM_TL_Review</members>
+        <name>CustomMetadata</name>
+    </types>
+    <types>
+        <members>LOS_Application_Team__c-LOS Layout</members>
+        <members>LOS_Application_Type__mdt-LOS Layout</members>
+        <members>LOS_Assignment_TAT__c-LOS Layout</members>
+        <members>LOS_Credit_Application__c-LOS Layout</members>
+        <members>LOS_Lifecycle_History__c-LOS Layout</members>
+        <members>LOS_Org_Unit_Type__mdt-LOS Layout</members>
+        <members>LOS_Organization_Unit__c-LOS Layout</members>
+        <members>LOS_Persona__mdt-LOS Layout</members>
+        <members>LOS_Relationship__c-LOS Layout</members>
+        <members>LOS_SLA_Rule__mdt-LOS Layout</members>
+        <members>LOS_Stage_TAT__c-LOS Layout</members>
+        <members>LOS_Stage_Transition__mdt-LOS Layout</members>
+        <members>LOS_Stage__mdt-LOS Layout</members>
+        <members>LOS_TAT_Pause_Rule__mdt-LOS Layout</members>
+        <members>LOS_TAT_Pause__c-LOS Layout</members>
+        <members>LOS_User_Org_Assignment__c-LOS Layout</members>
+        <members>LOS_Workspace_Action__mdt-LOS Layout</members>
+        <members>LOS_Workspace_Section__mdt-LOS Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>LOS_Lending_User</members>
+        <members>LOS_Platform_Admin</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>LOS_Use_Runtime</members>
+        <name>CustomPermission</name>
+    </types>
+    <types>
+        <members>LOS_ApplicationDTO</members>
+        <members>LOS_ApplicationService</members>
+        <members>LOS_ApplicationServiceTest</members>
+        <members>LOS_BusinessTimeService</members>
+        <members>LOS_ConfigurationException</members>
+        <members>LOS_ConfigurationService</members>
+        <members>LOS_ConfigurationServiceTest</members>
+        <members>LOS_Exception</members>
+        <members>LOS_LifecycleException</members>
+        <members>LOS_LifecycleService</members>
+        <members>LOS_LifecycleServiceTest</members>
+        <members>LOS_RecordGuard</members>
+        <members>LOS_RuntimeData</members>
+        <members>LOS_RuntimeService</members>
+        <members>LOS_RuntimeWriter</members>
+        <members>LOS_Security</members>
+        <members>LOS_SecurityException</members>
+        <members>LOS_SecurityTest</members>
+        <members>LOS_TATDTO</members>
+        <members>LOS_TATException</members>
+        <members>LOS_TATService</members>
+        <members>LOS_TATServiceTest</members>
+        <members>LOS_TestData</members>
+        <members>LOS_TransitionDTO</members>
+        <members>LOS_ValidationException</members>
+        <members>LOS_ValidationService</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>LOS_ApplicationGuard</members>
+        <members>LOS_AssignmentTATGuard</members>
+        <members>LOS_HistoryGuard</members>
+        <members>LOS_PauseGuard</members>
+        <members>LOS_StageTATGuard</members>
+        <name>ApexTrigger</name>
+    </types>
+    <version>67.0</version>
+</Package>
